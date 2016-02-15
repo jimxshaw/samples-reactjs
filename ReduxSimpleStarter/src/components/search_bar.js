@@ -53,10 +53,22 @@ class SearchBar extends Component {
 			<div className="search-bar">
 				<input
 					value={this.state.term}	 
-					onChange={event => this.setState({term: event.target.value})} 
+					onChange={event => this.onInputChange(event.target.value)} 
 					placeholder="Search..." />
 			</div>
 		);
+	}
+
+	// Whenever SearchBar is executed with a search term, the term is passed in as an
+	// event argument. We then call onInputChange that specifically captures the 
+	// argument's target value property, which is our search term. Since SearchBar is 
+	// a class component, we must update its state object properties. It happens that 
+	// there's only one state property called term and we set the new search term to it.
+	onInputChange(term) {
+		this.setState({term});
+		// The passed in props from App has the onSearchTermChange function and needs an 
+		// argument. We fulfill it with the new search term input by the user.  
+		this.props.onSearchTermChange(term);
 	}
 
 	// // Whenever the input element changes, run the code inside. This is essentially 
