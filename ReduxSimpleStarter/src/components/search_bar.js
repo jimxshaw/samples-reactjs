@@ -50,10 +50,11 @@ class SearchBar extends Component {
 		// term. Finally, the input JSX tag's value attribute will have the new 
 		// user input value that's captured with this.state.term.
 		return (
-			<div>
+			<div className="search-bar">
 				<input
 					value={this.state.term}	 
-					onChange={event => this.setState({term: event.target.value})} />
+					onChange={event => this.setState({term: event.target.value})} 
+					placeholder="Search..." />
 			</div>
 		);
 	}
