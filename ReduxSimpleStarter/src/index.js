@@ -16,6 +16,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import YTSearch from "youtube-api-search";
+import VideoList from "./components/video_list";
 
 // A path has to be specified for a code file that we write ourselves. If the file 
 // is a .js file then we do not have to include the .js extension in the path. The 
@@ -60,10 +61,16 @@ class App extends Component {
 		});
 	}
 
+	// VideoList is a child component of App but App needs to pass to VideoList its 
+	// videos state property in order for VideoList to render the list. Passing data 
+	// like this is called passing props in react. The App videos state property is a prop 
+	// that's passed to VideoList. Whenever App re-renders, VideoList will get a new 
+	// list of videos. 
 	render() {
 		return (
 			<div>
 				<SearchBar />
+				<VideoList videos={this.state.videos} />
 			</div>
 		);
 	}
