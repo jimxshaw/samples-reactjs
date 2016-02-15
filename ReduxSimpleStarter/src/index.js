@@ -48,17 +48,25 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {videos: []};
+		this.state = {
+      videos: [],
+      selectedVideo: null
+    };
 
 		// The constructor kicks off the youtube search api with a default search 
 		// term (vsauce in this case). The callback has the retrieved data and we 
-		// use that data to set the initial value of state. By the way, the callback 
-		// function utilizes fat arrow notation.
+		// use that data to set the initial values of the state object properties. 
+    // The callback function utilizes fat arrow notation. List of retrieved 
+    // videos is assigned to state's videos array. State's selectedVideo will 
+    // be the first video of the retrieved videos list. 
 		YTSearch({key: API_KEY, term: "vsauce"}, (videos) => {
-			// // this.setState({videos: videos});
+			this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+      });
 			// Since the callback data is named the same as the state property name 
-			// (videos), the code can be further simplified with below.
-			this.setState({videos});
+			// (videos), the code can be simplified with below if we wanted.
+			// this.setState({videos});
 		});
 	}
 
@@ -66,13 +74,16 @@ class App extends Component {
 	// videos state property in order for VideoList to render the list. Passing data 
 	// like this is called passing props in react. The App videos state property is a prop 
 	// that's passed to VideoList. Whenever App re-renders, VideoList will get a new 
-	// list of videos. 
+	// list of videos. The user's selected video will be passed into VideoDetail.
+  // When VideoList calls onVideoSelect with a video, the selectedVideo on App will update. 
 	render() {
 		return (
 			<div>
 				<SearchBar />
-        <VideoDetail video={this.state.videos[0]} />
-				<VideoList videos={this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo} />
+				<VideoList 
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          videos={this.state.videos} />
 			</div>
 		);
 	}
