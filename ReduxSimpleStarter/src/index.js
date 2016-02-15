@@ -13,7 +13,7 @@
 
 // Find the library called react installed in my application as a dependency
 // (./node_modules/react) and assign it to a variable called React.
-import React from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import YTSearch from "youtube-api-search";
 
@@ -26,20 +26,48 @@ import SearchBar from "./components/search_bar";
 // This is a youtube api key from console.developers.google.com.
 const API_KEY = "AIzaSyB2X1sr_tOIz8xWclj96qmEjWXKLYPpnw0";
 
-YTSearch({key: API_KEY, term: "vsauce"}, function(data) {
-	console.log(data);
-});
+// // Create a new component and it should produce html. The constant App class returns
+// // some JSX that will be transpiled to html. The () => fat arrow ES6 notation is a 
+// // terse way to write a function. Below is an example of a functional component.
+// const App = () => {
+//   return (
+//   	<div>
+//   		<SearchBar />
+//   	</div>
+//   );
+// };
 
-// Create a new component and it should produce html. The constant App class returns
-// some JSX that will be transpiled to html. The () => fat arrow ES6 notation is a 
-// terse way to write a function. Below is an example of a functional component.
-const App = () => {
-  return (
-  	<div>
-  		<SearchBar />
-  	</div>
-  );
-};
+// The App component needs to be refactored from a functional component to a class 
+// component. We do this so that the App can keep track of the list of retrieved 
+// videos by recording them on its state.
+class App extends Component {
+	// Whenever the user search for more videos, the newly searched for videos 
+	// need to be set on the state. State has to be initialized by the constructor.
+	constructor(props) {
+		super(props);
+
+		this.state = {videos: []};
+
+		// The constructor kicks off the youtube search api with a default search 
+		// term (vsauce in this case). The callback has the retrieved data and we 
+		// use that data to set the initial value of state. By the way, the callback 
+		// function utilizes fat arrow notation.
+		YTSearch({key: API_KEY, term: "vsauce"}, (videos) => {
+			// // this.setState({videos: videos});
+			// Since the callback data is named the same as the state property name 
+			// (videos), the code can be further simplified with below.
+			this.setState({videos});
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<SearchBar />
+			</div>
+		);
+	}
+}
 
 // Take the component's generated html and put it on the page (in the DOM).
 // We cannot simply pass App into .render() because that would be passing 
