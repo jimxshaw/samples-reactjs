@@ -19,9 +19,10 @@ const VideoList = (props) => {
 	// For every video object in the passed in props videos array from App component,
 	// return a VideoListItem component and assign said video object to the
 	// component's video attribute. After map finishes, assign the result to a 
-	// constant called videoItems.
+	// constant called videoItems. The key attribute holds video.etag, which 
+	// is that particular video's unique identifier retrieved from the youtube api.
 	const videoItems = props.videos.map((video) => {
-		return <VideoListItem video={video} />;
+		return <VideoListItem key={video.etag} video={video} />;
 	});
 
 	// React is smart enough to know that videoItems is an array and will try to 
