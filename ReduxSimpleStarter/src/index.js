@@ -17,6 +17,7 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import YTSearch from "youtube-api-search";
 import VideoList from "./components/video_list";
+import VideoDetail from "./components/video_detail";
 
 // A path has to be specified for a code file that we write ourselves. If the file 
 // is a .js file then we do not have to include the .js extension in the path. The 
@@ -70,6 +71,7 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
+        <VideoDetail video={this.state.videos[0]} />
 				<VideoList videos={this.state.videos} />
 			</div>
 		);

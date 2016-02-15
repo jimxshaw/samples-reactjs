@@ -11,6 +11,11 @@ import React from "react";
 // We'll use ES6 syntax in this component too. Instead of using props by 
 // capturing the props argument, we'll use the props object trick with {video}. 
 const VideoDetail = ({video}) => {
+  // Added a conditional just in case video is unavailable.
+  if (!video) {
+    return <div>Loading...</div>;
+  }
+
   // Youtube embedded videos always have the same url format, it starts with the 
   // same https... string plus a videoId. The videoId can be extracted from the 
   // passed in props object {video} argument. ES6 syntax allows for string 
