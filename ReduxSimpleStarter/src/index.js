@@ -15,6 +15,7 @@
 // (./node_modules/react) and assign it to a variable called React.
 import React from "react";
 import ReactDOM from "react-dom";
+import YTSearch from "youtube-api-search";
 
 // A path has to be specified for a code file that we write ourselves. If the file 
 // is a .js file then we do not have to include the .js extension in the path. The 
@@ -24,6 +25,10 @@ import SearchBar from "./components/search_bar";
 
 // This is a youtube api key from console.developers.google.com.
 const API_KEY = "AIzaSyB2X1sr_tOIz8xWclj96qmEjWXKLYPpnw0";
+
+YTSearch({key: API_KEY, term: "vsauce"}, function(data) {
+	console.log(data);
+});
 
 // Create a new component and it should produce html. The constant App class returns
 // some JSX that will be transpiled to html. The () => fat arrow ES6 notation is a 
