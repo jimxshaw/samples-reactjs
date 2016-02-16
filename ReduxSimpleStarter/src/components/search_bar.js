@@ -66,8 +66,8 @@ class SearchBar extends Component {
 	// there's only one state property called term and we set the new search term to it.
 	onInputChange(term) {
 		this.setState({term});
-		// The passed in props from App has the onSearchTermChange function and needs an 
-		// argument. We fulfill it with the new search term input by the user.  
+		// The passed in props from App has the onSearchTermChange callback function that 
+		// needs an argument. We fulfill it with the new search term input by the user.  
 		this.props.onSearchTermChange(term);
 	}
 

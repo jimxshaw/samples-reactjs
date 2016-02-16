@@ -15,6 +15,7 @@
 // (./node_modules/react) and assign it to a variable called React.
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import _ from "lodash"; // lodash is usually represented by an underscore _
 import YTSearch from "youtube-api-search";
 import VideoList from "./components/video_list";
 import VideoDetail from "./components/video_detail";
@@ -91,11 +92,21 @@ class App extends Component {
 	// that's passed to VideoList. Whenever App re-renders, VideoList will get a new 
 	// list of videos. The user's selected video will be passed into VideoDetail.
   // When VideoList calls onVideoSelect with a video, the selectedVideo on App will update.
-  //  
+  // We add the refactored YTSearch into a new method called videoSearch that takes one 
+  // argument called term. A new function attribute is added to SearchBar called 
+  // onSearchTermChange so that whatever a new search is input by the user through 
+  // SearchBar, that search term is passed into videoSearch.  
 	render() {
+    // Without lodash, SearchBar executes after every character we type. We want to 
+    // throttle the search just a little bit. What lodash's debounce method does is it 
+    // takes the input function and only executes it after a pre-determined amount of 
+    // time in milliseconds. We can call the function however many times we want, it 
+    // simply won't run after the milliseconds elapse.  
+    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 500);
+
 		return (
 			<div>
-				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+				<SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo} />
 				<VideoList 
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
