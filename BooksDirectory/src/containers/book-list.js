@@ -24,11 +24,17 @@ import {bindActionCreators} from "redux";
 class BookList extends Component {
   // This function maps over an array of books passed in from props. For each book in
   // the array, create an li tag that contains the book title. Make the book title the 
-  // unique identifier key as well.  
+  // unique identifier key as well. To select a particular book, we add a click handler 
+  // that uses the returned selectBook action creator from our mapDispatchToProps(). 
   renderList() {
     return this.props.books.map((book) => {
       return (
-        <li key={book.title} className="list-group-item">{book.title}</li>
+        <li 
+          key={book.title}
+          onClick={() => this.props.selectBook(book)} 
+          className="list-group-item">
+            {book.title}
+        </li>
       );
     });
   }
