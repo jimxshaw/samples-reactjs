@@ -3,10 +3,10 @@
 // of our application can use this reducer. 
 export default function() {
   return [
-    {title: "Dune"},
-    {title: "The Hobbit"},
-    {title: "Eloquent Javascript"},
-    {title: "Of Mice and Men"},
-    {title: "Code Complete"}
+    {title: "Dune", author: "Frank Herbert", genre: "Sci-Fi"},
+    {title: "The Hobbit", author: "J.R.R. Tolkein", genre: "Fantasy"},
+    {title: "Democracy in America", author: "Alexis de Tocqueville", genre: "Non-Fiction"},
+    {title: "Of Mice and Men", author: "John Steinbeck", genre: "Fiction"},
+    {title: "Code Complete", author: "Steve McConnell", genre: "Programming"}
   ];
 }
