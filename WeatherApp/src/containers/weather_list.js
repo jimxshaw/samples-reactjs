@@ -18,15 +18,17 @@ class WeatherList extends Component {
   renderWeather(cityData) {
     const cityName = cityData.city.name;
     // Grab our list of temperatures in kelvin and assign it to an array called temps.
-    const temps = cityData.list.map(weather => weather.main.temp);
+    const temps = cityData.list.map(weather => ((weather.main.temp - 273.15) * 1.8 + 32));
+    const pressures = cityData.list.map(weather => weather.main.pressure);
+    const humidities = cityData.list.map(weather => weather.main.humidity);
 
     // The Chart component expects two values for its props.data and props.color.
     return (
       <tr key={cityName}>
         <td>{cityName}</td>
-        <td>
-          <Chart data={temps} color="cyan"/>
-        </td>
+        <td><Chart data={temps} units="F" color="gray"/></td>
+        <td><Chart data={pressures} units="hPa" color="teal"/></td>
+        <td><Chart data={humidities} units="%" color="navy"/></td>
       </tr>
     );
   }
@@ -37,9 +39,9 @@ class WeatherList extends Component {
         <thead>
           <tr>
             <th>City</th>
-            <th>Temperature</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
+            <th>Temperature (F)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
           </tr>
         </thead>
         <tbody>
@@ -49,6 +51,16 @@ class WeatherList extends Component {
     );
   }
 }
+
+// function convertKelvinToFahrenheit(kelvinArray) {
+//   var fahrenheitArray = [];
+
+//   for (var i = 0; i < tempsK.length; i++) {
+//     tempsF.push(((kelvinArray[i] - 273.15) * 1.8 + 32).toFixed(1));
+//   }
+
+//   return fahrenheitArray;
+// }
 
 // What property of state are we mapping to our props for WeatherList? It's the weather 
 // array containing cities and their weather info retrieved from the external API.
