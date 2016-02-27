@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Sparklines, SparklinesLine} from "react-sparklines";
+import Chart from "../components/chart";
 
 // WeatherList has to be a container instead of a component because it needs 
 // access to the redux application state. SearchBar captures the user city 
@@ -20,13 +20,12 @@ class WeatherList extends Component {
     // Grab our list of temperatures in kelvin and assign it to an array called temps.
     const temps = cityData.list.map(weather => weather.main.temp);
 
+    // The Chart component expects two values for its props.data and props.color.
     return (
       <tr key={cityName}>
         <td>{cityName}</td>
         <td>
-          <Sparklines height={120} width={180} data={temps}>
-            <SparklinesLine color="blue" />
-          </Sparklines>
+          <Chart data={temps} color="cyan"/>
         </td>
       </tr>
     );
