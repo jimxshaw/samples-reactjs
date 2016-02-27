@@ -10,6 +10,20 @@ import {connect} from "react-redux";
 // App.js then displays the WeatherList container with its data in a view. 
 
 class WeatherList extends Component {
+  // This renderWeather function takes in the data for a particular city from 
+  // our props.weather array. Since each array element must have a unique 
+  // identifier, a key is added to the top-most JSX tag. The city name is used 
+  // as the key, since every city is unique.
+  renderWeather(cityData) {
+    const cityName = cityData.city.name;
+
+    return (
+      <tr key={cityName}>
+        <td>{cityName}</td>
+      </tr>
+    );
+  }
+
   render() {
     return (
       <table className="table table-hover">
@@ -22,14 +36,15 @@ class WeatherList extends Component {
           </tr>
         </thead>
         <tbody>
-
+          {this.props.weather.map(this.renderWeather)}
         </tbody>
       </table>
     );
   }
 }
 
-// The application state argument comes from the index reducer's const rootReducer. 
+// What property of state are we mapping to our props for WeatherList? It's the weather 
+// array containing cities and their weather info retrieved from the external API.
 function mapStateToProps(state) {
   return {weather: state.weather};
 }
@@ -37,6 +52,7 @@ function mapStateToProps(state) {
 //   return {weather}; // This ES6 syntax is identical to the above mapStateToProps.
 // }
 
+// connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 export default connect(mapStateToProps)(WeatherList);
 
 
