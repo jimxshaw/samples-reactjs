@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Chart from "../components/chart";
+import GoogleMap from "../components/google_map";
 
 // WeatherList has to be a container instead of a component because it needs 
 // access to the redux application state. SearchBar captures the user city 
@@ -21,14 +22,17 @@ class WeatherList extends Component {
     const temps = cityData.list.map(weather => ((weather.main.temp - 273.15) * 1.8 + 32));
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
+    const lon = cityData.city.coord.lon;
+    const lat = cityData.city.coord.lat;
+    // const {lon, lat} = cityData.city.coord; // ES6 syntax to pull both lon & lat from coord.
 
     // The Chart component expects two values for its props.data and props.color.
     return (
       <tr key={cityName}>
-        <td>{cityName}</td>
-        <td><Chart data={temps} units="F" color="gray"/></td>
-        <td><Chart data={pressures} units="hPa" color="teal"/></td>
-        <td><Chart data={humidities} units="%" color="navy"/></td>
+        <td><GoogleMap lon={lon} lat={lat} /></td>
+        <td><Chart data={temps} units="F" color="teal"/></td>
+        <td><Chart data={pressures} units="hPa" color="navy"/></td>
+        <td><Chart data={humidities} units="%" color="orange"/></td>
       </tr>
     );
   }
