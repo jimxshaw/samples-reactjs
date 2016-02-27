@@ -56,16 +56,6 @@ class WeatherList extends Component {
   }
 }
 
-// function convertKelvinToFahrenheit(kelvinArray) {
-//   var fahrenheitArray = [];
-
-//   for (var i = 0; i < tempsK.length; i++) {
-//     tempsF.push(((kelvinArray[i] - 273.15) * 1.8 + 32).toFixed(1));
-//   }
-
-//   return fahrenheitArray;
-// }
-
 // What property of state are we mapping to our props for WeatherList? It's the weather 
 // array containing cities and their weather info retrieved from the external API.
 function mapStateToProps(state) {
