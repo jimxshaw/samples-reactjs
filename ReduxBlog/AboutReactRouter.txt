@@ -1,0 +1,24 @@
+About React Router
+
+We start at the web browser. When users click on a link, the url is changed. Other things happen too but the main focus is on the url changing. 
+
+When npm installed react-router, a bonus package was installed with it called history. History is a tiny javascript package that has one purpose, managing the url of the web browser. It watches the url for changes and it also has the ability to update it over time. It's essentially how our application is going to work with the url. In reality, we'll likely never work with or directly refence the history package but it will be in the background doing its work.  
+
+Whenever the url changes, history is watching for that. History takes that new url and kicks it along the line to react-router. We don't have much control over history but we will have much control over what happens with react-router. React-router takes that url and its purpose is to change the components that are being used in our application based on that url. In other words, this is the part of the app that will make users think that they're navigating around to a different web page. React receives the changed components from react-router and re-renders content on the screen based on the changes. The content simply flows back into the browser. As far as users are concerned, not knowing what occurred behind-the-scenes, they think they've navigated to a completely different page. 
+
+browser(url change) -> history -> react-router -> react -> browser(new content)
+
+This is the big picture of how three libraries, history, react-router and react work together.
+
+
+
+
+
+
+
+
+
+
+
+
+
