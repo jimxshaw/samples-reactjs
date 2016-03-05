@@ -1,6 +1,8 @@
 // We will list out the mapping of which url belong to which component.
 import React from "react";
 
+// Keep in mind that react-router gives users the impression that they're navigating 
+// to different pages when in reality they're on the same page.  
 // Route is the object that defines a match between a url and a component.
 // IndexRoute is a helper that behaves like a route but will be shown whenever the url 
 // matches up with a path defined by the parent but not one of the children. 

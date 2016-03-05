@@ -12,10 +12,13 @@ import routes from "./routes";
 // browserHistory has nothing to do with the separate independent history library that works 
 // behind the scenes with react-router and react. 
 import { Router, browserHistory } from "react-router";
-
 import reducers from './reducers';
+import promise from "redux-promise";
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// Promise is added here to make sure promise is hit first prior to reaching reducers.
+const createStoreWithMiddleware = applyMiddleware(
+  promise
+)(createStore);
 
 // Even though the history library has nothing to do with browserHistory object, they still 
 // work together. History takes in browserHistory and kicks it along to react-router. The 
