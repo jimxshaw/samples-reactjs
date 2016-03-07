@@ -3,8 +3,15 @@
 import React, {Component} from "react";
 // This imported reduxForm is nearly identical to the connect function 
 // from react-redux, the reduxForm performs its functionality by taking 
-// in a component, our PostsNew component.
+// in a component, our PostsNew component. Because of this similarity, 
+// we can actually use reduxForm to inject action creators into our 
+// PostsNew component thus turning it into a container. The difference 
+// between connect and reduxForm is that reduxForm take in one additional 
+// argument, the form configuration object {form: "...", fields: ["...", "..."]}.
 import {reduxForm} from "redux-form";
+// Import the createPost action creator so that it can be used in
+// the handleSubmit event handler in PostsNew component.
+import {createPost} from "../actions/index";
 
 // PostsNew uses redux-form. How this component works with that package 
 // is this. PostsNew tells react-form to keep track of three fields(inputs):
@@ -31,10 +38,13 @@ class PostsNew extends Component {
     // event handler handleSubmit would block the form from being submitted.
     // The {...title} means it's destructuring the title object into its keys and values 
     // and pass all of them into the <input>. If {...title} syntax isn't used, then 
-    // title's methods such as onChange={title.onChange} would have to be passed into 
-    // <input> one by one. That'd be a hassle.   
+    // title's properties such as onChange={title.onChange} would have to be passed into 
+    // <input> one by one. That'd be a hassle.
+    // The handleSubmit event handler can take in an optional action creator 
+    // that will be called with the properties from the form when the form is 
+    // validated and submitted.   
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.props.createPost)}>
         <h3>Create a New Post</h3>
         <div className="form-group">
           <label>Title</label>
@@ -63,11 +73,14 @@ class PostsNew extends Component {
 // Then we have an array containing our fields that will be on the form. 
 // Once reduxForm executes, our returned jsx in the PostsNew component will 
 // get access to several new this.props properties, include an important 
-// one called this.props.handleSubmit.
+// one called this.props.handleSubmit. 
+// Difference between connect & reduxForm:
+// connect([mapStateToProps], [mapDispatchToProps]) while
+// reduxForm([{form config}], [mapStateToProps], [mapDispatchToProps])...... 
 export default reduxForm({
   form: "PostsNewForm",
   fields: ["title", "categories", "content"]
-})(PostsNew);
+}, null, {createPost})(PostsNew);
 
 
 /*
