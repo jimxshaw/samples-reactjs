@@ -42,13 +42,19 @@ class PostsNew extends Component {
     // <input> one by one. That'd be a hassle.
     // The handleSubmit event handler can take in an optional action creator 
     // that will be called with the properties from the form when the form is 
-    // validated and submitted.   
+    // validated and submitted. 
+    // Regarding validation, title.error the title comes from the fields object above 
+    // and error is the message from our errors object in the below validate(values) 
+    // function.   
     return (
       <form onSubmit={handleSubmit(this.props.createPost)}>
         <h3>Create a New Post</h3>
         <div className="form-group">
           <label>Title</label>
           <input type="text" className="form-control" {...title}/>
+          <div className="text-help">
+            {title.touched ? title.error : ""}
+          </div>
         </div>
 
         <div className="form-group">
@@ -67,6 +73,23 @@ class PostsNew extends Component {
   }
 }
 
+// This form validation function takes in an object containing values from 
+// our PostsNew form. This function will then be placed in reduxForm below 
+// so that the fields from our form can flow into validate(values).
+function validate(values) {
+  // An errors empty object is initialized.
+  const errors = {};
+
+  // Conditionals are added to test the form values. For example, if our 
+  // values object doesn't have a property called title, our errors object 
+  // will get a new property called title with a message. 
+  if (!values.title) {
+    errors.title = "Enter a title";
+  }
+
+  return errors;
+}
+
 // PostsNew form configuration is placed here, letting redux-form know 
 // the fields that it will take charge. First, we name our form PostsNew. 
 // The form name does not have to be named the same as the component name. 
@@ -79,7 +102,8 @@ class PostsNew extends Component {
 // reduxForm([{form config}], [mapStateToProps], [mapDispatchToProps])...... 
 export default reduxForm({
   form: "PostsNewForm",
-  fields: ["title", "categories", "content"]
+  fields: ["title", "categories", "content"],
+  validate
 }, null, {createPost})(PostsNew);
 
 
