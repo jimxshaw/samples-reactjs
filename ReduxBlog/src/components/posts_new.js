@@ -12,6 +12,8 @@ import {reduxForm} from "redux-form";
 // Import the createPost action creator so that it can be used in
 // the handleSubmit event handler in PostsNew component.
 import {createPost} from "../actions/index";
+// Import this to be able to use the Link JSX tag.
+import {Link} from "react-router"; 
 
 // PostsNew uses redux-form. How this component works with that package 
 // is this. PostsNew tells react-form to keep track of three fields(inputs):
@@ -49,7 +51,8 @@ class PostsNew extends Component {
     return (
       <form onSubmit={handleSubmit(this.props.createPost)}>
         <h3>Create a New Post</h3>
-        <div className="form-group">
+
+        <div className={`form-group ${title.touched && title.invalid ? "has-danger" : ""}`}>
           <label>Title</label>
           <input type="text" className="form-control" {...title}/>
           <div className="text-help">
@@ -57,17 +60,25 @@ class PostsNew extends Component {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className={`form-group ${categories.touched && categories.invalid ? "has-danger" : ""}`}>
           <label>Categories</label>
           <input type="text" className="form-control" {...categories} />
+          <div className="text-help">
+            {categories.touched ? categories.error : ""}
+          </div>
         </div>
 
-        <div className="form-group">
+        <div className={`form-group ${content.touched && content.invalid ? "has-danger" : ""}`}>
           <label>Content</label>
           <textarea type="text" className="form-control" {...content} />
+          <div className="text-help">
+            {content.touched ? content.error : ""}
+          </div>
         </div>
 
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
+        <button type="reset" className="btn btn-warning" id="clearBtn">Clear</button>
+        <Link to="/" className="btn btn-danger" id="cancelBtn">Cancel</Link>
       </form>
     );
   }
@@ -86,6 +97,12 @@ function validate(values) {
   if (!values.title) {
     errors.title = "Enter a title";
   }
+  if (!values.categories) {
+    errors.categories = "Enter categories";
+  }
+  if (!values.content) {
+    errors.content = "Enter some content";
+  }
 
   return errors;
 }
@@ -96,7 +113,7 @@ function validate(values) {
 // Then we have an array containing our fields that will be on the form. 
 // Once reduxForm executes, our returned jsx in the PostsNew component will 
 // get access to several new this.props properties, include an important 
-// one called this.props.handleSubmit. 
+// one called this.props.handleSubmit. Add the validate function to reduxForm.
 // Difference between connect & reduxForm:
 // connect([mapStateToProps], [mapDispatchToProps]) while
 // reduxForm([{form config}], [mapStateToProps], [mapDispatchToProps])...... 
