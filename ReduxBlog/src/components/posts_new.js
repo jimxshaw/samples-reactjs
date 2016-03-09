@@ -1,6 +1,6 @@
 // This is the component to create a new post at 
 // route /posts/new.
-import React, {Component} from "react";
+import React, {Component, PropTypes} from "react";
 // This imported reduxForm is nearly identical to the connect function 
 // from react-redux, the reduxForm performs its functionality by taking 
 // in a component, our PostsNew component. Because of this similarity, 
@@ -22,6 +22,32 @@ import {Link} from "react-router";
 // what to do when they're updated. React-form also takes charge of the 
 // PostsNew form submission functionality. 
 class PostsNew extends Component {
+  // This contextTypes method, being static, is accessable on this PostsNew 
+  // class component itself. By calling PostsNew.contextTypes, we get access 
+  // to our key router and its value PropTypes. The router property comes from 
+  // the react-router Router JSX tag in index.js. By having an instance of router, 
+  // we get access to the push method that can update our current path. 
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  onSubmit(props) {
+    // The props here is not this.props but the input properties on the form.
+    // Props then get handed off to our createPost action creator.
+    // What createPost does is it creates a promise as its payload. Whenever 
+    // we call an action creator that creates a promise as its payload, the 
+    // call itself will return the same promise. When the promise is resolved, 
+    // our new blog post is successfully created. This is the perfect place to 
+    // make sure our navigation occurs. 
+    this.props.createPost(props)
+      .then(() => {
+        // Blog post has been created, navigate the user to the index.
+        // We navigate by calling this.context.router.push with the new path 
+        // that we want to navigate.
+        this.context.router.push("/"); 
+      });
+  }
+
   render() {
     //// The below const lines are equivalent. The second syntax condenses lines.
     // handleSubmit property comes from reduxForm. 
@@ -49,7 +75,7 @@ class PostsNew extends Component {
     // and error is the message from our errors object in the below validate(values) 
     // function.   
     return (
-      <form onSubmit={handleSubmit(this.props.createPost)}>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h3>Create a New Post</h3>
 
         <div className={`form-group ${title.touched && title.invalid ? "has-danger" : ""}`}>
