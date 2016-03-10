@@ -10,6 +10,7 @@ import {Route, IndexRoute} from "react-router";
 import App from "./components/app";
 import PostsIndex from "./components/posts_index";
 import PostsNew from "./components/posts_new";
+import PostsShow from "./components/posts_show";
 
 // Route JSX tag is where we house our paths and components that we want to share.
 // This maps the route of / to the component of App. Whenever users are at /, show the
@@ -27,7 +28,8 @@ import PostsNew from "./components/posts_new";
 export default ( 
   <Route path="/" component={App}>
     <IndexRoute component={PostsIndex} />
-    <Route path="/posts/new" component={PostsNew} />
+    <Route path="posts/new" component={PostsNew} />
+    <Route path="posts/:id" component={PostsShow} />
   </Route>
 );
 
