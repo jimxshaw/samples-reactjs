@@ -13,6 +13,8 @@ var reactify = require("reactify");
 var source = require("vinyl-source-stream");
 // Concatenates files. 
 var concat = require("gulp-concat");
+// Lint our JS files, including JSX.
+var lint = require("gulp-eslint");
 
 var config = {
     port: 9005,
@@ -80,14 +82,23 @@ gulp.task("js", function () {
             .pipe(connect.reload());
 });
 
+// We return the result of our linting on our JS files so we can see it. The output 
+// is in a file with a format we specify. 
+gulp.task("lint", function () {
+    return gulp.src(config.paths.js)
+               .pipe(lint({ config: "eslint.config.json" }))
+               .pipe(lint.format());
+});
+
 // Watch certain files and whenever they change, run the appropriate tasks.
+// Specifically with the JS file change, we'd like to lint it as well.
 gulp.task("watch", function () {
     gulp.watch(config.paths.html, ["html"]);
-    gulp.watch(config.paths.js, ["js"]);
+    gulp.watch(config.paths.js, ["js", "lint"]);
 });
 
 // This is a default task we want to run. When we goto the command line and 
 // issue the gulp command, gulp will run the tasks in the array.
-gulp.task("default", ["html", "css", "js", "open", "watch"]);
+gulp.task("default", ["html", "css", "js", "lint", "open", "watch"]);
 
 
