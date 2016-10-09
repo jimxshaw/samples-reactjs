@@ -43,8 +43,13 @@ gulp.task("html", function () {
         .pipe(connect.reload());
 });
 
+// Watch the html file and whenever it changes, run the html task.
+gulp.task("watch", function () {
+    gulp.watch(config.paths.html, ["html"]);
+});
+
 // This is a default task we want to run. When we goto the command line and 
-// issue the gulp command, gulp will run the open task and the html task.
-gulp.task("default", ["html", "open"]);
+// issue the gulp command, gulp will run the tasks in the array.
+gulp.task("default", ["html", "open", "watch"]);
 
 
