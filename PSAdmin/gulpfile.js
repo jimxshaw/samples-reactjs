@@ -11,12 +11,18 @@ var browserify = require("browserify");
 var reactify = require("reactify");
 // User conventional text streams with Gulp.
 var source = require("vinyl-source-stream");
+// Concatenates files. 
+var concat = require("gulp-concat");
 
 var config = {
     port: 9005,
     devBaseUrl: "http://localhost",
     paths: {
         html: "./src/*.html",
+        css: [
+            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
+        ],
         js: "./src/**/*.js",
         dist: "./dist",
         mainJs: "./src/main.js"
@@ -51,6 +57,14 @@ gulp.task("html", function () {
         .pipe(connect.reload());
 });
 
+// The goal here is to have a single bundled css file. We concatenate our css files 
+// from our path listed above into a bundle and place them in a specified dist location.
+gulp.task("css", function () {
+    gulp.src(config.paths.css)
+        .pipe(concat("bundle.css"))
+        .pipe(gulp.dest(config.paths.dist + "/css"));
+});
+
 // We pass in the path we defined above. Transform our JS with one of our plugins,
 // in this case it's reactify to compile JSX. Bundle all JS files, put them in 
 // one file. As it's bundling and errors occur, we bind them to the console and 
@@ -74,6 +88,6 @@ gulp.task("watch", function () {
 
 // This is a default task we want to run. When we goto the command line and 
 // issue the gulp command, gulp will run the tasks in the array.
-gulp.task("default", ["html", "js", "open", "watch"]);
+gulp.task("default", ["html", "css", "js", "open", "watch"]);
 
 
