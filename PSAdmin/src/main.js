@@ -2,9 +2,12 @@
 
 $ = jQuery = require("jquery");
 
-var App = console.log("Hello from Browserify");
+var React = require("react");
+var Home = require("./components/homePage");
 
-module.exports = App;
+// Take our Home page component and attach it to the DOM element 
+// id of app.
+React.render(<Home />, document.getElementById("app"));
 
 
 
