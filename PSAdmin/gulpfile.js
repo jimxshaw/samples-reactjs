@@ -27,6 +27,7 @@ var config = {
             "node_modules/bootstrap/dist/css/bootstrap.min.css",
             "node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
         ],
+        images: "./src/img/*",
         js: "./src/**/*.js",
         dist: "./dist",
         mainJs: "./src/main.js"
@@ -84,6 +85,17 @@ gulp.task("js", function () {
             .pipe(connect.reload());
 });
 
+// Migrates images to dist folder.
+gulp.task("images", function () {
+    gulp.src(config.paths.images)
+        .pipe(gulp.dest(config.paths.dist + "/img"))
+        .pipe(connect.reload());
+
+    // Publish favicon.
+    gulp.src("./src/favicon.ico")
+        .pipe(gulp.dest(config.paths.dist));
+});
+
 // We return the result of our linting on our JS files so we can see it. The output 
 // is in a file with a format we specify. 
 gulp.task("lint", function () {
@@ -101,6 +113,6 @@ gulp.task("watch", function () {
 
 // This is a default task we want to run. When we goto the command line and 
 // issue the gulp command, gulp will run the tasks in the array.
-gulp.task("default", ["html", "css", "js", "lint", "open", "watch"]);
+gulp.task("default", ["html", "css", "js", "images", "lint", "open", "watch"]);
 
 
