@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ae4991c-c639-4a37-84db-1e1417479df6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/bundle.js" afterPath="$PROJECT_DIR$/dist/scripts/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/about/aboutPage.js" afterPath="$PROJECT_DIR$/src/components/about/aboutPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
     </list>
     <ignored path="PSAdmin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,14 +68,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aboutPage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aboutPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/about/aboutPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <marker date="1477968958000" expanded="true" signature="96:571" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,13 +100,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/components/authors/authorList.js" />
         <option value="$PROJECT_DIR$/src/components/authors/authorPage.js" />
-        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/components/app.js" />
         <option value="$PROJECT_DIR$/src/components/common/header.js" />
         <option value="$PROJECT_DIR$/src/components/homePage.js" />
         <option value="$PROJECT_DIR$/src/components/notFoundPage.js" />
         <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/components/about/aboutPage.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
       </list>
     </option>
   </component>
@@ -229,7 +239,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="aboutpage&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/about/aboutPage.js&#10;homepage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/homePage.js&#10;main&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;authorpage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/authorPage.js" />
+    <property name="SearchEverywhereHistoryKey" value="main.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;aboutpage&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/about/aboutPage.js&#10;homepage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/homePage.js&#10;main&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;authorpage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/authorPage.js" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
   <component name="RunManager">
@@ -252,12 +262,12 @@
       <updated>1477449543423</updated>
       <workItem from="1477449547408" duration="1457000" />
       <workItem from="1477537087854" duration="14000" />
-      <workItem from="1477964946875" duration="3774000" />
+      <workItem from="1477964946875" duration="3890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5245000" />
+    <option name="totallyTimeSpent" value="5361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1519" y="23" width="1040" height="1330" extended-state="0" />
@@ -331,14 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -391,11 +393,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/about/aboutPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <marker date="1477968958000" expanded="true" signature="96:571" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
