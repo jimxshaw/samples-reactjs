@@ -4,7 +4,6 @@
     <list default="true" id="0ae4991c-c639-4a37-84db-1e1417479df6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/bundle.js" afterPath="$PROJECT_DIR$/dist/scripts/bundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/authors/authorForm.js" afterPath="$PROJECT_DIR$/src/components/authors/authorForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/authors/manageAuthorPage.js" afterPath="$PROJECT_DIR$/src/components/authors/manageAuthorPage.js" />
     </list>
     <ignored path="PSAdmin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +59,7 @@
       <file leaf-file-name="manageAuthorPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/authors/manageAuthorPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
+            <state relative-caret-position="1088">
               <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
               <folding />
             </state>
@@ -80,8 +79,8 @@
       <file leaf-file-name="authorForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/authors/authorForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+            <state relative-caret-position="187">
+              <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -365,12 +364,12 @@
       <workItem from="1477964946875" duration="4090000" />
       <workItem from="1481160075118" duration="185000" />
       <workItem from="1481243759528" duration="4568000" />
-      <workItem from="1481342987167" duration="989000" />
+      <workItem from="1481342987167" duration="1605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11303000" />
+    <option name="totallyTimeSpent" value="11919000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1519" y="23" width="1040" height="1330" extended-state="0" />
@@ -686,7 +685,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/authors/manageAuthorPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
+        <state relative-caret-position="1088">
           <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
           <folding />
         </state>
@@ -694,8 +693,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/authors/authorForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        <state relative-caret-position="187">
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding />
         </state>
       </provider>
