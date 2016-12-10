@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ae4991c-c639-4a37-84db-1e1417479df6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/scripts/bundle.js" afterPath="$PROJECT_DIR$/dist/scripts/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/authors/authorList.js" afterPath="$PROJECT_DIR$/src/components/authors/authorList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/authors/manageAuthorPage.js" afterPath="$PROJECT_DIR$/src/components/authors/manageAuthorPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.js" afterPath="$PROJECT_DIR$/src/routes.js" />
     </list>
     <ignored path="PSAdmin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,6 +48,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authorList.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/authors/authorList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="textInput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/common/textInput.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,8 +81,8 @@
       <file leaf-file-name="manageAuthorPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/authors/manageAuthorPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
+            <state relative-caret-position="340">
+              <caret line="34" column="73" lean-forward="false" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -94,18 +116,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/authors/authorList.js" />
         <option value="$PROJECT_DIR$/src/components/app.js" />
         <option value="$PROJECT_DIR$/src/components/common/header.js" />
         <option value="$PROJECT_DIR$/src/components/homePage.js" />
         <option value="$PROJECT_DIR$/src/components/notFoundPage.js" />
         <option value="$PROJECT_DIR$/src/components/about/aboutPage.js" />
         <option value="$PROJECT_DIR$/src/main.js" />
-        <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/components/authors/authorPage.js" />
         <option value="$PROJECT_DIR$/src/components/common/textInput.js" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/src/components/authors/authorForm.js" />
+        <option value="$PROJECT_DIR$/src/routes.js" />
+        <option value="$PROJECT_DIR$/src/components/authors/authorList.js" />
         <option value="$PROJECT_DIR$/src/components/authors/manageAuthorPage.js" />
       </list>
     </option>
@@ -280,7 +302,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="mana&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/manageAuthorPage.js&#10;gulp&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/gulpfile.js&#10;main.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;aboutpage&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/about/aboutPage.js&#10;homepage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/homePage.js&#10;main&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;authorpage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/authorPage.js" />
+    <property name="SearchEverywhereHistoryKey" value="authorlist&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/authorList.js&#10;routes&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/routes.js&#10;mana&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/manageAuthorPage.js&#10;gulp&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/gulpfile.js&#10;main.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;aboutpage&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/about/aboutPage.js&#10;homepage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/homePage.js&#10;main&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/main.js&#10;authorpage.js&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdmin/src/components/authors/authorPage.js" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -364,12 +386,12 @@
       <workItem from="1477964946875" duration="4090000" />
       <workItem from="1481160075118" duration="185000" />
       <workItem from="1481243759528" duration="4568000" />
-      <workItem from="1481342987167" duration="1897000" />
+      <workItem from="1481342987167" duration="2727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12211000" />
+    <option name="totallyTimeSpent" value="13041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1519" y="23" width="1040" height="1330" extended-state="0" />
@@ -590,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/authors/authorList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -631,22 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/authors/authorPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="61" lean-forward="false" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,10 +690,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/authors/authorPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="61" lean-forward="false" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/authors/authorList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/authors/manageAuthorPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
+        <state relative-caret-position="340">
+          <caret line="34" column="73" lean-forward="false" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
           <folding />
         </state>
       </provider>
