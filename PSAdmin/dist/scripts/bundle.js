@@ -50859,6 +50859,17 @@ var AuthorActions = {
             actionType: ActionTypes.CREATE_AUTHOR,
             author: newAuthor
         });
+    },
+
+    updateAuthor: function(author) {
+        var updatedAuthor = AuthorApi.saveAuthor(author);
+
+        // The dispatcher tells all the stores that an author
+        // was just updated.
+        Dispatcher.dispatch({
+            actionType: ActionTypes.UPDATE_AUTHOR,
+            author: updatedAuthor
+        });
     }
 
 };
@@ -51040,14 +51051,13 @@ module.exports = App;
 },{"./common/header":217,"jquery":7,"react":205,"react-router":35}],213:[function(require,module,exports){
 "use strict";
 
-var React = require("react");
-var Input = require("../common/textInput");
+var React = require('react');
+var Input = require('../common/textInput');
 
 var AuthorForm = React.createClass({displayName: "AuthorForm",
-
     propTypes: {
-        author: React.PropTypes.object.isRequired,
-        onSave: React.PropTypes.func.isRequired,
+        author:	React.PropTypes.object.isRequired,
+        onSave:	React.PropTypes.func.isRequired,
         onChange: React.PropTypes.func.isRequired,
         errors: React.PropTypes.object
     },
@@ -51056,22 +51066,21 @@ var AuthorForm = React.createClass({displayName: "AuthorForm",
         return (
             React.createElement("form", null, 
                 React.createElement("h1", null, "Manage Author"), 
+                React.createElement(Input, {
+                    name: "firstName", 
+                    label: "First Name", 
+                    value: this.props.author.firstName, 
+                    onChange: this.props.onChange, 
+                    error: this.props.errors.firstName}), 
 
-                React.createElement(Input, {name: "firstName", 
-                       label: "First Name", 
-                       value:  this.props.author.firstName, 
-                       onChange:  this.props.onChange, 
-                       error:  this.props.errors.firstName}), 
+                React.createElement(Input, {
+                    name: "lastName", 
+                    label: "Last Name", 
+                    value: this.props.author.lastName, 
+                    onChange: this.props.onChange, 
+                    error: this.props.errors.lastName}), 
 
-                React.createElement(Input, {name: "lastName", 
-                       label: "Last Name", 
-                       value:  this.props.author.lastName, 
-                       onChange:  this.props.onChange, 
-                       error:  this.props.errors.lastName}), 
-
-                React.createElement("input", {type: "submit", value: "Save", 
-                       className: "btn btn-default", 
-                       onClick:  this.props.onSave})
+                React.createElement("input", {type: "submit", value: "Save", className: "btn btn-default", onClick: this.props.onSave})
             )
         );
     }
@@ -51157,23 +51166,21 @@ module.exports = AuthorPage;
 },{"../../actions/authorActions":207,"../../api/authorApi":209,"../../stores/authorStore":225,"./authorList":214,"react":205,"react-router":35}],216:[function(require,module,exports){
 "use strict";
 
-var React = require("react");
-var Router = require("react-router");
-var AuthorForm = require("./authorForm");
-var AuthorActions = require("../../actions/authorActions");
-var AuthorStore = require("../../stores/authorStore");
-
-var toastr = require("toastr");
+var React = require('react');
+var Router = require('react-router');
+var AuthorForm = require('./authorForm');
+var AuthorActions = require('../../actions/authorActions');
+var AuthorStore = require('../../stores/authorStore');
+var toastr = require('toastr');
 
 var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
-
     mixins: [
         Router.Navigation
     ],
 
     statics: {
         willTransitionFrom: function(transition, component) {
-            if (component.state.dirty && !confirm("Leave without saving?")) {
+            if (component.state.dirty && !confirm('Leave without saving?')) {
                 transition.abort();
             }
         }
@@ -51181,44 +51188,42 @@ var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
 
     getInitialState: function() {
         return {
-            author: { id: "", firstName: "", lastName: "" },
+            author: { id: '', firstName: '', lastName: '' },
             errors: {},
             dirty: false
         };
     },
 
     componentWillMount: function() {
-        var authorId = this.props.params.id; // From the path "/author:id"
-
+        var authorId = this.props.params.id; //from the path '/author:id'
         if (authorId) {
-            this.setState({ author: AuthorStore.getAuthorById(authorId) });
+            this.setState({author: AuthorStore.getAuthorById(authorId) });
         }
     },
 
     setAuthorState: function(event) {
-        this.setState({ dirty: true });
+        this.setState({dirty: true});
         var field = event.target.name;
         var value = event.target.value;
         this.state.author[field] = value;
-        return this.setState({ author: this.state.author });
+        return this.setState({author: this.state.author});
     },
 
     authorFormIsValid: function() {
         var formIsValid = true;
-        this.state.errors = {}; // Clear any previous errors.
+        this.state.errors = {}; //clear any previous errors.
 
         if (this.state.author.firstName.length < 3) {
-            this.state.errors.firstName = "First name must have at least 3 characters.";
+            this.state.errors.firstName = 'First name must be at least 3 characters.';
             formIsValid = false;
         }
 
         if (this.state.author.lastName.length < 3) {
-            this.state.errors.lastName = "Last name must have at least 3 characters.";
+            this.state.errors.lastName = 'Last name must be at least 3 characters.';
             formIsValid = false;
         }
 
-        this.setState({ errors: this.state.errors });
-
+        this.setState({errors: this.state.errors});
         return formIsValid;
     },
 
@@ -51229,20 +51234,24 @@ var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
             return;
         }
 
-        AuthorActions.createAuthor(this.state.author);
+        if (this.state.author.id) {
+            AuthorActions.updateAuthor(this.state.author);
+        } else {
+            AuthorActions.createAuthor(this.state.author);
+        }
 
-        this.setState({ dirty: false });
-        toastr.success("Author saved.");
-        this.transitionTo("authors");
+        this.setState({dirty: false});
+        toastr.success('Author saved.');
+        this.transitionTo('authors');
     },
 
     render: function() {
         return (
             React.createElement(AuthorForm, {
-                author:  this.state.author, 
-                onChange:  this.setAuthorState, 
-                onSave:  this.saveAuthor, 
-                errors:  this.state.errors})
+                author: this.state.author, 
+                onChange: this.setAuthorState, 
+                onSave: this.saveAuthor, 
+                errors: this.state.errors})
         );
     }
 });
@@ -51282,38 +51291,36 @@ module.exports = Header;
 },{"react":205,"react-router":35}],218:[function(require,module,exports){
 "use strict";
 
-var React = require("react");
+var React = require('react');
 
 var Input = React.createClass({displayName: "Input",
-
     propTypes: {
         name: React.PropTypes.string.isRequired,
         label: React.PropTypes.string.isRequired,
-        onChange: React.PropTypes.string.isRequired,
+        onChange: React.PropTypes.func.isRequired,
         placeholder: React.PropTypes.string,
         value: React.PropTypes.string,
         error: React.PropTypes.string
     },
 
-    render: function() {
-
-        var wrapperClass = "form-group";
-
+    render: function () {
+        var wrapperClass = 'form-group';
         if (this.props.error && this.props.error.length > 0) {
-            wrapperClass += " " + "has-error";
+            wrapperClass += " " + 'has-error';
         }
 
         return (
-            React.createElement("div", {className:  wrapperClass }, 
-                React.createElement("label", {htmlFor:  this.props.name},  this.props.label), 
+            React.createElement("div", {className: wrapperClass}, 
+                React.createElement("label", {htmlFor: this.props.name}, this.props.label), 
                 React.createElement("div", {className: "field"}, 
                     React.createElement("input", {type: "text", 
-                           name:  this.props.name, 
+                           name: this.props.name, 
                            className: "form-control", 
-                           placeholder:  this.props.placeholder, 
-                           ref:  this.props.value, 
-                           onChange:  this.props.onChange}), 
-                    React.createElement("div", {className: "input"},  this.props.error)
+                           placeholder: this.props.placeholder, 
+                           ref: this.props.name, 
+                           value: this.props.value, 
+                           onChange: this.props.onChange}), 
+                    React.createElement("div", {className: "input"}, this.props.error)
                 )
             )
         );
@@ -51372,7 +51379,8 @@ var keyMirror = require("react/lib/keyMirror");
 
 module.exports = keyMirror({
     INITIALIZE: null,
-    CREATE_AUTHOR: null
+    CREATE_AUTHOR: null,
+    UPDATE_AUTHOR: null
 });
 
 },{"react/lib/keyMirror":190}],222:[function(require,module,exports){
@@ -51469,12 +51477,12 @@ Dispatcher.register(function(action) {
             _authors.push(action.author);
             AuthorStore.emitChange();
             break;
-        // case ActionTypes.UPDATE_AUTHOR:
-        //     var existingAuthor = _.find(_authors, {id: action.author.id});
-        //     var existingAuthorIndex = _.indexOf(_authors, existingAuthor);
-        //     _authors.splice(existingAuthorIndex, 1, action.author);
-        //     AuthorStore.emitChange();
-        //     break;
+        case ActionTypes.UPDATE_AUTHOR:
+            var existingAuthor = _.find(_authors, {id: action.author.id});
+            var existingAuthorIndex = _.indexOf(_authors, existingAuthor);
+            _authors.splice(existingAuthorIndex, 1, action.author);
+            AuthorStore.emitChange();
+            break;
         // case ActionTypes.DELETE_AUTHOR:
         //     _.remove(_authors, function(author) {
         //         return action.id === author.id;
