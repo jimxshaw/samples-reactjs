@@ -5,6 +5,7 @@ var AuthorApi = require("../api/authorApi");
 var ActionTypes = require("../constants/actionTypes");
 
 var AuthorActions = {
+
     createAuthor: function(author) {
         var newAuthor = AuthorApi.saveAuthor(author);
 
@@ -15,6 +16,7 @@ var AuthorActions = {
             author: newAuthor
         });
     }
+
 };
 
 module.exports = AuthorActions;
