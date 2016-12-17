@@ -50873,6 +50873,7 @@ var AuthorActions = {
     },
 
     deleteAuthor: function(id) {
+        //debugger;
         AuthorApi.deleteAuthor(id);
 
         // The dispatcher tells all the stores that an author
@@ -51118,6 +51119,7 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 
     deleteAuthor: function(id, event) {
         event.preventDefault();
+        //debugger;
         AuthorActions.deleteAuthor(id);
         toastr.success("Author Deleted");
     },
@@ -51181,6 +51183,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
     },
 
     _onChange: function() {
+        //debugger;
         this.setState({ authors: AuthorStore.getAllAuthors() });
     },
 
@@ -51519,6 +51522,7 @@ Dispatcher.register(function(action) {
             AuthorStore.emitChange();
             break;
         case ActionTypes.DELETE_AUTHOR:
+            //debugger;
             _.remove(_authors, function(author) {
                 return action.id === author.id;
             });

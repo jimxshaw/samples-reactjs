@@ -29,6 +29,7 @@ var AuthorActions = {
     },
 
     deleteAuthor: function(id) {
+        //debugger;
         AuthorApi.deleteAuthor(id);
 
         // The dispatcher tells all the stores that an author
