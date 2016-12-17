@@ -4,7 +4,11 @@ var Dispatcher = require("../dispatcher/appDispatcher");
 var ActionTypes = require("../actions/authorActions");
 var EventEmitter = require("events").EventEmitter;
 var objectAssign = require("object-assign");
+var _ = require("lodash");
+
 var CHANGE_EVENT = "change";
+
+var _authors = [];
 
 // Define the store.
 // Object assign takes an empty new object, extend it to EventEmitter's
@@ -23,13 +27,23 @@ var AuthorStore = objectAssign({}, EventEmitter.prototype, {
 
     emitChange: function() {
         this.emit(CHANGE_EVENT);
+    },
+
+    getAllAuthors: function() {
+        return _authors;
+    },
+
+    getAuthorById: function(id) {
+        return _.find(_authors, { id: id });
     }
 });
 
 // Register the store with dispatcher.
 Dispatcher.register(function(action) {
     switch(action.actionType) {
-
+        case ActionTypes.CREATE_AUTHOR:
+            _authors.push(action.author);
+            AuthorStore.emitChange();
     }
 });
 
