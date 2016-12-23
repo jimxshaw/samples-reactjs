@@ -1,4 +1,6 @@
 import React, { PropTypes } from "react";
+import { connect } from "react-redux";
+import * as courseActions from "../../actions/courseActions";
 
 class CoursesPage extends React.Component {
 
@@ -22,7 +24,7 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    alert(`Saving ${ this.state.course.title }`);
+    this.props.dispatch(courseActions.createCourse(this.state.course));
   }
 
   render() {
@@ -42,4 +44,16 @@ class CoursesPage extends React.Component {
   }
 }
 
-export default CoursesPage;
+function mapStateToProps(state, ownProps) {
+  // The state passed in is whatever state is in our store.
+  // The state property is whatever reducer alias we picked for that
+  // particular reducer.
+  // The ownProps parameter is this component's own props that is passed in.
+  return {
+    courses: state.courses
+  };
+}
+
+// The connect function uses one or two parameter functions and returns a function.
+// That returned function is then used with our CoursesPage component.
+export default connect(mapStateToProps)(CoursesPage);
