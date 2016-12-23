@@ -5,6 +5,17 @@ import * as courseActions from "../../actions/courseActions";
 
 class CoursesPage extends React.Component {
 
+  /*
+    Major pieces of a container component:
+    1) constructor - initialize state and call bind functions, any
+          functions that need to be bound to the this context.
+    2) child functions - these are called by render.
+    3) render function - ideally container components call one
+          child component that contains markup.
+    4) propTypes - these provider validation.
+    5) redux connect and parameter function(s).
+   */
+
   constructor(props, context) {
     super(props, context);
 
@@ -17,6 +28,8 @@ class CoursesPage extends React.Component {
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
   }
+
+
 
   onTitleChange(event) {
     const course = this.state.course;
@@ -35,6 +48,8 @@ class CoursesPage extends React.Component {
   courseRow(course, index) {
     return <div key={ index }>{ course.title }</div>;
   }
+
+
 
   render() {
     //debugger;
@@ -55,6 +70,8 @@ class CoursesPage extends React.Component {
   }
 }
 
+
+
 CoursesPage.propTypes = {
   // By defining the mapDispatchToProps function, we no longer
   // need the dispatch propType.
@@ -62,6 +79,8 @@ CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
+
+
 
 function mapStateToProps(state, ownProps) {
   //debugger;
