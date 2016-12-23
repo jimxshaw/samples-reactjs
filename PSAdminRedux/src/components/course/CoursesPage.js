@@ -32,6 +32,7 @@ class CoursesPage extends React.Component {
   }
 
   render() {
+    //debugger;
     return (
       <div>
         <h1>Courses</h1>
@@ -55,6 +56,7 @@ CoursesPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+  //debugger;
   // The state passed in is whatever state is in our store.
   // The state property is whatever reducer alias we picked for that
   // particular reducer.
