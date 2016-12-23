@@ -24,7 +24,11 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    // Use this if not using mapDispatchToProps.
+    //this.props.dispatch(courseActions.createCourse(this.state.course));
+
+    // Use this if using mapDispatchToProps.
+    this.props.createCourse(this.state.course);
   }
 
   courseRow(course, index) {
@@ -51,8 +55,11 @@ class CoursesPage extends React.Component {
 }
 
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  // By defining the mapDispatchToProps function, we no longer
+  // need the dispatch propType.
+  //dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired,
+  createCourse: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -66,6 +73,12 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+  };
+}
+
 // The connect function uses one or two parameter functions and returns a function.
 // That returned function is then used with our CoursesPage component.
-export default connect(mapStateToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
