@@ -1,11 +1,11 @@
 import * as types from "./actionTypes";
-import courseApi from "../api/mockCourseApi";
+import courseApi from "../api/mockCoursesApi";
 
 export function loadCoursesSuccess(courses) {
   //debugger;
   return {
     type: types.LOAD_COURSES_SUCCESS,
-    course: courses
+    courses: courses
   };
 }
 
