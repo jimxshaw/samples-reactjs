@@ -55,11 +55,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courseActions.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="courseReducer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reducers/courseReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courseActions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/courseActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="289">
+              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -90,7 +100,6 @@
         <option value="$PROJECT_DIR$/src/components/common/Header.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/reducers/courseReducer.js" />
         <option value="$PROJECT_DIR$/src/api/mockAuthorApi.js" />
         <option value="$PROJECT_DIR$/src/api/mockCourseApi.js" />
         <option value="$PROJECT_DIR$/src/api/delay.js" />
@@ -98,6 +107,7 @@
         <option value="$PROJECT_DIR$/src/store/configureStore.js" />
         <option value="$PROJECT_DIR$/src/actions/actionTypes.js" />
         <option value="$PROJECT_DIR$/src/actions/courseActions.js" />
+        <option value="$PROJECT_DIR$/src/reducers/courseReducer.js" />
       </list>
     </option>
   </component>
@@ -302,7 +312,7 @@
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="editor.config.accepted" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="actionT&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/actions/actionTypes.js&#10;courseAct&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/actions/courseActions.js&#10;confi&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/store/configureStore.js&#10;courses&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/components/course/CoursesPage.js&#10;api&#9;null&#9;null&#10;package.json&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/package.json" />
+    <property name="SearchEverywhereHistoryKey" value="coursere&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/reducers/courseReducer.js&#10;actionT&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/actions/actionTypes.js&#10;courseAct&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/actions/courseActions.js&#10;confi&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/store/configureStore.js&#10;courses&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/src/components/course/CoursesPage.js&#10;api&#9;null&#9;null&#10;package.json&#9;FILE&#9;file:///Users/jamesshaw/Documents/projects/samples-reactjs/PSAdminRedux/package.json" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
   </component>
   <component name="RunManager">
@@ -385,12 +395,12 @@
       <workItem from="1482107515995" duration="631000" />
       <workItem from="1482108357957" duration="1400000" />
       <workItem from="1482520106827" duration="5336000" />
-      <workItem from="1483303616123" duration="1368000" />
+      <workItem from="1483303616123" duration="1730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16822000" />
+    <option name="totallyTimeSpent" value="17184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1519" y="23" width="1040" height="1330" extended-state="0" />
@@ -492,6 +502,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="65" lean-forward="false" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -517,6 +530,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -542,6 +558,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,6 +705,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="65" lean-forward="false" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -739,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/courseReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/course/CoursesPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -777,11 +791,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/courseActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="289">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/courseReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
