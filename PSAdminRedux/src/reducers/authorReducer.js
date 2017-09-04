@@ -3,11 +3,11 @@ import initialState from './initialState';
 
 // A reducer takes in the state and an action and then
 // returns a new state.
-export default function courseReducer(state = initialState.courses, action) {
+export default function authorReducer(state = initialState.authors, action) {
   switch (action.type) {
-    case types.LOAD_COURSES_SUCCESS:
+    case types.LOAD_AUTHORS_SUCCESS:
       //debugger;
-      return action.courses;
+      return action.authors;
     default:
       return state;
   }
