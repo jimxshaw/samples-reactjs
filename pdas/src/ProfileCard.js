@@ -1,10 +1,5 @@
-function ProfileCard(props) {
-  // const title = props.title;
-  // const handle = props.handle;
-
-  // Destructuring
-  const { title, handle } = props;
-
+function ProfileCard({ title, handle }) {
+  // Destructuring props
   return (
     <div>
       <div>Title is {title}</div>
