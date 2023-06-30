@@ -1,22 +1,17 @@
-// Import the React and ReactDOM libraries
-import React from "react";
-import ReactDOM from "react-dom";
+// 1) Import React and ReactDOM libraries
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-// Create a react component
-const App = () => {
-  const buttonText = { text: "Click here" };
-  const style = { backgroundColor: "blue", color: "white" };
+// 2) Get a reference to the div with ID root
+const el = document.getElementById('root');
 
-  return (
-    <div>
-      <label className="label" htmlFor="name">
-        Enter name:
-      </label>
-      <input id="name" type="text" />
-      <button style={style}>{buttonText.text}</button>
-    </div>
-  );
-};
+// 3) Tell React to take control of that element
+const root = ReactDOM.createRoot(el);
 
-// Take the react component and show it on the screen
-ReactDOM.render(<App />, document.querySelector("#root"));
+// 4) Create a component
+function App() {
+  return <h1>Hello World!</h1>
+}
+
+// 5) Show the component on the screen
+root.render(<App />);
