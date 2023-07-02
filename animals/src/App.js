@@ -16,6 +16,7 @@ function App() {
     setAnimals([...animals, getRandomAnimal()]);
   };
 
+  // Map animals array to create an array of components.
   const renderedAnimals = animals.map((animal, index) => {
     return <AnimalShow type={animal} key={index} />
   });
