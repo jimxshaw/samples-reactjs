@@ -1,6 +1,6 @@
-function AnimalShow() {
+function AnimalShow({ type }) {
   return (
-    <div>Animals!</div>
+    <div>{type}</div>
   );
 }
 
