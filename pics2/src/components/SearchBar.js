@@ -1,12 +1,15 @@
 function SearchBar({ onSubmit }) {
-  const handleClick = () => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
     onSubmit('dogs');
   };
 
   return (
     <div>
-      <input />
-      <button onClick={handleClick}>Search</button>
+      <form onSubmit={handleFormSubmit}>
+        <input />
+      </form>
     </div>
   );
 }
