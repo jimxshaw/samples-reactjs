@@ -1,7 +1,7 @@
-function ImageShow() {
+function ImageList() {
   return (
-    <div>ImageShow</div>
+    <div>ImageList</div>
   );
 }
 
-export default ImageShow;
+export default ImageList;

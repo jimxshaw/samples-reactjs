@@ -1,7 +1,7 @@
-function ImageShow() {
+function SearchBar() {
   return (
-    <div>ImageShow</div>
+    <div>SearchBar</div>
   );
 }
 
-export default ImageShow;
+export default SearchBar;
