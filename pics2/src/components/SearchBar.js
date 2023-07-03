@@ -1,7 +1,14 @@
-function ImageShow() {
+function SearchBar({ onSubmit }) {
+  const handleClick = () => {
+    onSubmit('dogs');
+  };
+
   return (
-    <div>ImageShow</div>
+    <div>
+      <input />
+      <button onClick={handleClick}>Search</button>
+    </div>
   );
 }
 
-export default ImageShow;
+export default SearchBar;
