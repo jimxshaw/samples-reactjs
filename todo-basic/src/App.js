@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <TodoCreate onSubmit={createTodo} />
+      <TodoCreate onCreate={createTodo} />
       <div>
         {todos}
       </div>

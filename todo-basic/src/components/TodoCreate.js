@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function TodoCreate({ onSubmit }) {
+function TodoCreate({ onCreate }) {
   const [todo, setTodo] = useState('');
 
-  const handleCreateSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    onSubmit(todo);
+    onCreate(todo);
+    setTodo('');
   };
 
   const handleChange = (event) => {
@@ -15,9 +15,10 @@ function TodoCreate({ onSubmit }) {
 
   return (
     <div>
-      <form onSubmit={handleCreateSubmit}>
-        <label>Add Todo</label>
+      <form onSubmit={handleSubmit}>
+        <label>Todo</label>
         <input value={todo} onChange={handleChange} />
+        <button>Create!</button>
       </form>
     </div>
   );
