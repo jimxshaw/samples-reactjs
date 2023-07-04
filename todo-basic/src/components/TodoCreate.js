@@ -14,11 +14,12 @@ function TodoCreate({ onCreate }) {
   };
 
   return (
-    <div>
+    <div className="todo-create">
+      <h3>Add a Todo</h3>
       <form onSubmit={handleSubmit}>
-        <label>Todo</label>
-        <input value={todo} onChange={handleChange} />
-        <button>Create!</button>
+        <label>Description</label>
+        <input className="input" value={todo} onChange={handleChange} />
+        <button className="button">Create!</button>
       </form>
     </div>
   );
