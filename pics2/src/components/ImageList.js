@@ -5,8 +5,6 @@ function ImageList({ images }) {
     return <ImageShow image={img} key={index} />
   });
 
-  console.log(images);
-
   return (
     <div>
       {renderedImages}
