@@ -1,6 +1,8 @@
-function TodoShow() {
+function TodoShow({ todo }) {
   return (
-    <div>Todo Show</div>
+    <div className="todo-show">
+      {todo.description}
+    </div>
   );
 }
 
