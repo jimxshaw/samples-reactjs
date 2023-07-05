@@ -8,7 +8,10 @@ function App() {
     // Array and object state updates must be done in
     // a particular way or will cause trouble later on.
     // https://state-updates.vercel.app/
-    const updatedTodos = [...todos, { id: 123, description: todo }];
+    const updatedTodos = [...todos, {
+      id: Math.round(Math.random() * 9999),
+      description: todo
+    }];
 
     setTodos(updatedTodos);
   };
