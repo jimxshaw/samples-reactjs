@@ -18,9 +18,19 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const deleteTodoById = (id) => {
+    // Filter does not modify existing array but 
+    // creates a new one and copies contents over.
+    const updatedTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+
+    setTodos(updatedTodos);
+  }
+
   return (
     <div className="app">
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onDelete={deleteTodoById} />
       <TodoCreate onCreate={createTodo} />
     </div>
   );

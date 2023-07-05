@@ -1,8 +1,8 @@
 import TodoShow from "./TodoShow";
 
-function TodoList({ todos }) {
+function TodoList({ todos, onDelete }) {
   const renderedTodos = todos.map((todo) => {
-    return <TodoShow key={todo.id} todo={todo} />
+    return <TodoShow key={todo.id} todo={todo} onDelete={onDelete} />
   });
 
   return (
