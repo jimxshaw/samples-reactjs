@@ -14,7 +14,7 @@ function TodoShow({ todo, onDelete }) {
 
   let content = <h3>{todo.description}</h3>;
   if (showEdit) {
-    content = <TodoEdit />
+    content = <TodoEdit todo={todo} />
   }
 
   return (
