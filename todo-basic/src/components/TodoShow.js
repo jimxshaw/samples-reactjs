@@ -1,13 +1,30 @@
+import { useState } from 'react';
+import TodoEdit from './TodoEdit';
+
 function TodoShow({ todo, onDelete }) {
-  const handleClick = () => {
+  const [showEdit, setShowEdit] = useState(false);
+
+  const handleDeleteClick = () => {
     onDelete(todo.id);
   };
 
+  const handleEditClick = () => {
+    setShowEdit(!showEdit);
+  };
+
+  let content = <h3>{todo.description}</h3>;
+  if (showEdit) {
+    content = <TodoEdit />
+  }
+
   return (
     <div className="todo-show">
-      {todo.description}
+      <div>{content}</div>
       <div className="actions">
-        <button className="delete" onClick={handleClick}>
+        <button className="edit" onClick={handleEditClick}>
+          Edit
+        </button>
+        <button className="delete" onClick={handleDeleteClick}>
           Delete
         </button>
       </div>
