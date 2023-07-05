@@ -1,5 +1,7 @@
-import TodoCreate from './components/TodoCreate';
 import { useState } from 'react';
+import TodoCreate from './components/TodoCreate';
+import TodoList from './components/TodoList';
+
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -17,8 +19,8 @@ function App() {
   };
 
   return (
-    <div>
-      {todos.length}
+    <div className="app">
+      <TodoList todos={todos} />
       <TodoCreate onCreate={createTodo} />
     </div>
   );
