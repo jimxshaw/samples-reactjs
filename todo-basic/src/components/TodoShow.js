@@ -24,6 +24,7 @@ function TodoShow({ todo, onDelete, onEdit }) {
 
   return (
     <div className="todo-show">
+      <img alt="todos" src={`https://picsum.photos/seed/${todo.id}/300/200`} />
       <div>{content}</div>
       <div className="actions">
         <button className="edit" onClick={handleEditClick}>
