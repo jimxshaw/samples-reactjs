@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodoCreate from './components/TodoCreate';
 import TodoList from './components/TodoList';
 import axios from 'axios';
@@ -12,6 +12,10 @@ function App() {
 
     setTodos(response.data)
   }
+
+  useEffect(() => {
+    getTodos();
+  }, []);
 
   const createTodo = async (todo) => {
     const response = await axios.post('http://localhost:3001/todos', {
