@@ -28,9 +28,23 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  const editTodoById = (id, newDescription) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, description: newDescription };
+      }
+
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="app">
-      <TodoList todos={todos} onDelete={deleteTodoById} />
+      <TodoList todos={todos}
+        onDelete={deleteTodoById}
+        onEdit={editTodoById} />
       <TodoCreate onCreate={createTodo} />
     </div>
   );
