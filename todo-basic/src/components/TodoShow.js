@@ -12,13 +12,14 @@ function TodoShow({ todo, onDelete, onEdit }) {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (id, newDescription) => {
     setShowEdit(false);
+    onEdit(id, newDescription);
   };
 
   let content = <h3>{todo.description}</h3>;
   if (showEdit) {
-    content = <TodoEdit todo={todo} onEdit={onEdit} onSubmit={handleSubmit} />
+    content = <TodoEdit todo={todo} onSubmit={handleSubmit} />
   }
 
   return (
