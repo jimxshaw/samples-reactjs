@@ -36,10 +36,15 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  const editTodoById = (id, newDescription) => {
+  const editTodoById = async (id, newDescription) => {
+    const response = await axios.put(`http://localhost:3001/todos/${id}`, {
+      description: newDescription
+    });
+
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
-        return { ...todo, description: newDescription };
+        // Take all the response data key-value pairs and add it to the new object.
+        return { ...todo, ...response.data };
       }
 
       return todo;
