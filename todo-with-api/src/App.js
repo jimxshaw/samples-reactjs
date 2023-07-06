@@ -13,6 +13,12 @@ function App() {
     setTodos(response.data)
   }
 
+  // The arrow function will always be called right after the initial render.
+  // The 2nd argument triggers whether the arrow function will be called in
+  // subsequent re-renders:
+  // [], only triggers in initial render.
+  // nothing, no 2nd argument means initial render plus every re-render.
+  // [counterVariable], initial render plus re-renders based on the counter.
   useEffect(() => {
     getTodos();
   }, []);
