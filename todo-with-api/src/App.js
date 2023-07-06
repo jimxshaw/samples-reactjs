@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import TodoCreate from './components/TodoCreate';
 import TodoList from './components/TodoList';
+import axios from 'axios';
 
 
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const createTodo = (todo) => {
+  const createTodo = async (todo) => {
+    const response = await axios.post('http://localhost:3001/todos', {
+      description: todo
+    });
+
     // Array and object state updates must be done in
     // a particular way or will cause trouble later on.
     // https://state-updates.vercel.app/
-    const updatedTodos = [...todos, {
-      id: Math.round(Math.random() * 9999),
-      description: todo
-    }];
+    const updatedTodos = [...todos, response.data];
 
     setTodos(updatedTodos);
   };
