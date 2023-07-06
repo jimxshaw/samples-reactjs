@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
-function TodoEdit({ todo }) {
+function TodoEdit({ todo, onEdit }) {
   const [description, setDescription] = useState(todo.description);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setDescription(description);
+    onEdit(todo.id, description);
+    setDescription('');
   };
 
   const handleChange = (event) => {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TodoEdit from './TodoEdit';
 
-function TodoShow({ todo, onDelete }) {
+function TodoShow({ todo, onDelete, onEdit }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteClick = () => {
@@ -14,7 +14,7 @@ function TodoShow({ todo, onDelete }) {
 
   let content = <h3>{todo.description}</h3>;
   if (showEdit) {
-    content = <TodoEdit todo={todo} />
+    content = <TodoEdit todo={todo} onEdit={onEdit} />
   }
 
   return (
