@@ -1,0 +1,23 @@
+### Retrieve all todos
+GET http://localhost:3001/todos HTTP/1.1
+Content-Type: application/json
+
+### Create a todo
+POST http://localhost:3001/todos HTTP/1.1
+Content-Type: application/json
+
+{
+  "description": "Do laundry"
+}
+
+### Edit a todo
+PUT http://localhost:3001/todos/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "description": "Add gas"
+}
+
+### Delete a todo
+DELETE http://localhost:3001/todos/1 HTTP/1.1
+Content-Type: application/json
