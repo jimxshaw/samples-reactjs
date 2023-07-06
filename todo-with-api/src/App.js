@@ -7,6 +7,12 @@ import axios from 'axios';
 function App() {
   const [todos, setTodos] = useState([]);
 
+  const getTodos = async () => {
+    const response = await axios.get('http://localhost:3001/todos');
+
+    setTodos(response.data)
+  }
+
   const createTodo = async (todo) => {
     const response = await axios.post('http://localhost:3001/todos', {
       description: todo
@@ -20,16 +26,6 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  const deleteTodoById = (id) => {
-    // Filter does not modify existing array but 
-    // creates a new one and copies contents over.
-    const updatedTodos = todos.filter((todo) => {
-      return todo.id !== id;
-    });
-
-    setTodos(updatedTodos);
-  }
-
   const editTodoById = (id, newDescription) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -41,6 +37,16 @@ function App() {
 
     setTodos(updatedTodos);
   };
+
+  const deleteTodoById = (id) => {
+    // Filter does not modify existing array but 
+    // creates a new one and copies contents over.
+    const updatedTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+
+    setTodos(updatedTodos);
+  }
 
   return (
     <div className="app">
