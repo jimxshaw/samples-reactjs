@@ -53,7 +53,9 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  const deleteTodoById = (id) => {
+  const deleteTodoById = async (id) => {
+    await axios.delete(`http://localhost:3001/todos/${id}`);
+
     // Filter does not modify existing array but 
     // creates a new one and copies contents over.
     const updatedTodos = todos.filter((todo) => {
