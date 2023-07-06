@@ -18,7 +18,7 @@ function App() {
   // subsequent re-renders:
   // [], only triggers in initial render.
   // nothing, no 2nd argument means initial render plus every re-render.
-  // [counterVariable], initial render plus re-renders based on the counter.
+  // [counterState], initial render plus re-renders based on the counterState.
   useEffect(() => {
     getTodos();
   }, []);
