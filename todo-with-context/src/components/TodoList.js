@@ -2,12 +2,11 @@ import { useContext } from 'react';
 import TodosContext from '../context/todos';
 import TodoShow from './TodoShow';
 
-function TodoList({ todos, onDelete, onEdit }) {
+function TodoList() {
+  const { todos } = useContext(TodosContext);
+
   const renderedTodos = todos.map((todo) => {
-    return <TodoShow key={todo.id}
-      todo={todo}
-      onDelete={onDelete}
-      onEdit={onEdit} />
+    return <TodoShow key={todo.id} todo={todo} />
   });
 
   return (
