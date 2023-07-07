@@ -7,6 +7,10 @@
     {
       "description": "Go to Clinic",
       "id": 3
+    },
+    {
+      "description": "Fold clothes",
+      "id": 4
     }
   ]
 }
