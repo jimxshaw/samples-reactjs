@@ -5,12 +5,8 @@
       "id": 1
     },
     {
-      "description": "Go to Clinic",
-      "id": 3
-    },
-    {
-      "description": "Fold clothes",
-      "id": 4
+      "description": "Take out trash",
+      "id": 6
     }
   ]
 }

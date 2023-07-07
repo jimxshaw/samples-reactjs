@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import TodoEdit from './TodoEdit';
+import useTodosContext from '../hooks/use-todos-context';
 
-function TodoShow({ todo, onDelete, onEdit }) {
+function TodoShow({ todo }) {
+  const { deleteTodoById } = useTodosContext();
+
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteClick = () => {
-    onDelete(todo.id);
+    deleteTodoById(todo.id);
   };
 
   const handleEditClick = () => {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = (id, newDescription) => {
+  const handleSubmit = () => {
     setShowEdit(false);
-    onEdit(id, newDescription);
   };
 
   let content = <h3>{todo.description}</h3>;
