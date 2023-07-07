@@ -5,15 +5,11 @@
       "id": 1
     },
     {
-      "description": "Go to Clinic",
-      "id": 3
-    },
-    {
-      "description": "Fold clothes",
+      "description": "Do laundry",
       "id": 4
     },
     {
-      "description": "Eat lunch",
+      "description": "Mow lawn",
       "id": 5
     }
   ]
