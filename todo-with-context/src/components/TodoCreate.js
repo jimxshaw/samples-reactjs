@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import TodosContext from '../context/todos';
 
-function TodoCreate({ onCreate }) {
+function TodoCreate() {
+  const { createTodo } = useContext(TodosContext);
   const [todo, setTodo] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(todo);
+    createTodo(todo);
     setTodo('');
   };
 
