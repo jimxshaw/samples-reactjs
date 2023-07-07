@@ -3,7 +3,7 @@ import TodosContext from '../context/todos';
 import TodoEdit from './TodoEdit';
 
 function TodoShow({ todo }) {
-  const { editTodoById, deleteTodoById } = useContext(TodosContext);
+  const { deleteTodoById } = useContext(TodosContext);
 
   const [showEdit, setShowEdit] = useState(false);
 
@@ -15,9 +15,8 @@ function TodoShow({ todo }) {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = (id, newDescription) => {
+  const handleSubmit = () => {
     setShowEdit(false);
-    editTodoById(id, newDescription);
   };
 
   let content = <h3>{todo.description}</h3>;

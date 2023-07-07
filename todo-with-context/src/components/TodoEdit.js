@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import TodosContext from '../context/todos';
 
 function TodoEdit({ todo, onSubmit }) {
+  const { editTodoById } = useContext(TodosContext);
   const [description, setDescription] = useState(todo.description);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(todo.id, description);
+    editTodoById(todo.id, description);
+    onSubmit();
   };
 
   const handleChange = (event) => {
