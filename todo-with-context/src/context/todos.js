@@ -54,8 +54,16 @@ function Provider({ children }) {
     setTodos(updatedTodos);
   }
 
+  const valueToShare = {
+    todos,
+    getTodos,
+    createTodo,
+    editTodoById,
+    deleteTodoById
+  };
+
   return (
-    <TodosContext.Provider value={{}}>
+    <TodosContext.Provider value={valueToShare}>
       {children}
     </TodosContext.Provider>
   );
