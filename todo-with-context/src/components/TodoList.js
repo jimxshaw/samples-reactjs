@@ -3,7 +3,7 @@ import TodosContext from '../context/todos';
 import TodoShow from './TodoShow';
 
 function TodoList({ todos, onDelete, onEdit }) {
-  const value = useContext(TodosContext);
+  const { count, incrementCount } = useContext(TodosContext);
 
   const renderedTodos = todos.map((todo) => {
     return <TodoShow key={todo.id}
@@ -14,7 +14,8 @@ function TodoList({ todos, onDelete, onEdit }) {
 
   return (
     <div className="todo-list">
-      {value}
+      {count}
+      <button onClick={incrementCount}>Click</button>
       {renderedTodos}
     </div>
   );
