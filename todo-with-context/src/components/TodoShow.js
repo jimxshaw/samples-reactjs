@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
-import TodosContext from '../context/todos';
+import { useState } from 'react';
 import TodoEdit from './TodoEdit';
+import useTodosContext from '../hooks/use-todos-context';
 
 function TodoShow({ todo }) {
-  const { deleteTodoById } = useContext(TodosContext);
+  const { deleteTodoById } = useTodosContext();
 
   const [showEdit, setShowEdit] = useState(false);
 

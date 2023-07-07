@@ -5,4 +5,4 @@ function useTodosContext() {
   return useContext(TodosContext);
 }
 
-export { useTodosContext };
+export default useTodosContext;

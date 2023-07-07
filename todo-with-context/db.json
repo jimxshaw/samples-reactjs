@@ -5,12 +5,8 @@
       "id": 1
     },
     {
-      "description": "Do laundry",
-      "id": 4
-    },
-    {
-      "description": "Mow lawn",
-      "id": 5
+      "description": "Take out trash",
+      "id": 6
     }
   ]
 }

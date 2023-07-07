@@ -1,8 +1,8 @@
-import { useState, useContext } from 'react';
-import TodosContext from '../context/todos';
+import { useState } from 'react';
+import useTodosContext from '../hooks/use-todos-context';
 
 function TodoEdit({ todo, onSubmit }) {
-  const { editTodoById } = useContext(TodosContext);
+  const { editTodoById } = useTodosContext();
   const [description, setDescription] = useState(todo.description);
 
   const handleSubmit = (event) => {

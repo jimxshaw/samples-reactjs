@@ -1,11 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import TodoCreate from './components/TodoCreate';
 import TodoList from './components/TodoList';
-import TodosContext from './context/todos';
-
+import useTodosContext from './hooks/use-todos-context';
 
 function App() {
-  const { getTodos } = useContext(TodosContext);
+  const { getTodos } = useTodosContext();
 
   // The arrow function will always be called right after the initial render.
   // The 2nd argument triggers whether the arrow function will be called in

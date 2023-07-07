@@ -1,8 +1,8 @@
-import { useState, useContext } from 'react';
-import TodosContext from '../context/todos';
+import { useState } from 'react';
+import useTodosContext from '../hooks/use-todos-context';
 
 function TodoCreate() {
-  const { createTodo } = useContext(TodosContext);
+  const { createTodo } = useTodosContext();
   const [todo, setTodo] = useState('');
 
   const handleSubmit = (event) => {
