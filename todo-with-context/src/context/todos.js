@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react';
 import axios from 'axios';
 
 const TodosContext = createContext();
@@ -6,11 +6,14 @@ const TodosContext = createContext();
 function Provider({ children }) {
   const [todos, setTodos] = useState([]);
 
-  const getTodos = async () => {
+  // Wrap useCallback around getTodos in order to keep the initial
+  // getTodos memory reference for subsequent re-renders.
+  // https://tinyurl.com/5n6kmenz
+  const getTodos = useCallback(async () => {
     const response = await axios.get('http://localhost:3001/todos');
 
     setTodos(response.data)
-  }
+  }, []);
 
   const createTodo = async (todo) => {
     const response = await axios.post('http://localhost:3001/todos', {

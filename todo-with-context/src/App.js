@@ -14,7 +14,7 @@ function App() {
   // [counterState], initial render plus re-renders based on the counterState.
   useEffect(() => {
     getTodos();
-  }, []);
+  }, [getTodos]);
 
   return (
     <div className="app">
