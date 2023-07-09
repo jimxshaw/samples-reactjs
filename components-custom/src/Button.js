@@ -1,6 +1,7 @@
-function Button() {
+// The prop children is a React keyword.
+function Button({ children }) {
   return (
-    <button>Hello!</button>
+    <button>{children}</button>
   );
 }
 
