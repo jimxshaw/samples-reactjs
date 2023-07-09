@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 // The prop children is a React keyword.
 function Button({
   children,
