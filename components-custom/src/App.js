@@ -1,10 +1,14 @@
 import Button from './Button';
+import { FaRegFutbol, FaRegHeart } from 'react-icons/fa6';
 
 function App() {
   return (
     <div>
       <div>
-        <Button>Confirm</Button>
+        <Button>
+          <FaRegFutbol />
+          Confirm
+        </Button>
       </div>
       <div>
         <Button primary>Click Here</Button>
@@ -13,7 +17,10 @@ function App() {
         <Button secondary>Buy It Now</Button>
       </div>
       <div>
-        <Button success outline rounded>Cancel</Button>
+        <Button success outline rounded>
+          <FaRegHeart />
+          Cancel
+        </Button>
       </div>
       <div>
         <Button warning>Decline</Button>
