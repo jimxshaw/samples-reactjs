@@ -16,7 +16,9 @@ function Button({
 }) {
   // If class names conflict with one another then
   // the later class name will take over.
-  const classes = className('flex item-center px-3 py-1.5 border', {
+  // The rest's className is needed too just in case any additional css styling
+  // gets passed in as props.
+  const classes = className(rest.className, 'flex item-center px-3 py-1.5 border', {
     'border-blue-500 bg-blue-500': primary,
     'border-gray-900 bg-gray-900': secondary,
     'border-green-500 bg-green-500': success,
@@ -35,7 +37,8 @@ function Button({
 
   return (
     // Take all properties from rest and assign them as props.
-    <button className={classes} {...rest}>{children}</button>
+    // The rest variable should be first.
+    <button {...rest} className={classes}>{children}</button>
   );
 }
 
