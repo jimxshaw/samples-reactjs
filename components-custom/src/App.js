@@ -2,6 +2,14 @@ import Button from './Button';
 import { FaRegFutbol, FaRegHeart } from 'react-icons/fa6';
 
 function App() {
+  const handleClick = () => {
+    console.log('click!!!');
+  };
+
+  const handleMouseOver = () => {
+    console.log('mouse over!!!');
+  };
+
   return (
     <div>
       <div>
@@ -11,7 +19,11 @@ function App() {
         </Button>
       </div>
       <div>
-        <Button primary>Click Here</Button>
+        <Button primary
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}>
+          Click Here
+        </Button>
       </div>
       <div>
         <Button secondary>Buy It Now</Button>

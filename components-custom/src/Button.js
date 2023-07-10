@@ -1,6 +1,8 @@
 import className from 'classnames';
 
 // The prop children is a React keyword.
+// The JS ...rest syntax means gather up remaining properties (E.g. handlers)
+// and put them in a variable called rest.
 function Button({
   children,
   primary,
@@ -9,7 +11,8 @@ function Button({
   warning,
   danger,
   outline,
-  rounded
+  rounded,
+  ...rest
 }) {
   // If class names conflict with one another then
   // the later class name will take over.
@@ -31,7 +34,8 @@ function Button({
   });
 
   return (
-    <button className={classes}>{children}</button>
+    // Take all properties from rest and assign them as props.
+    <button className={classes} {...rest}>{children}</button>
   );
 }
 
