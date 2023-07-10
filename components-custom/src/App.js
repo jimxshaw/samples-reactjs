@@ -13,7 +13,7 @@ function App() {
         <Button secondary>Buy It Now</Button>
       </div>
       <div>
-        <Button success>Cancel</Button>
+        <Button success outline rounded>Cancel</Button>
       </div>
       <div>
         <Button warning>Decline</Button>
