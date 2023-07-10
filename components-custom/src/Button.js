@@ -1,6 +1,8 @@
 import className from 'classnames';
 
 // The prop children is a React keyword.
+// The JS ...rest syntax means gather up remaining properties (E.g. handlers)
+// and put them in a variable called rest.
 function Button({
   children,
   primary,
@@ -9,27 +11,34 @@ function Button({
   warning,
   danger,
   outline,
-  rounded
+  rounded,
+  ...rest
 }) {
   // If class names conflict with one another then
   // the later class name will take over.
-  const classes = className('px-3 py-1.5 border', {
-    'border-blue-500 bg-blue-500 text-white': primary,
-    'border-gray-900 bg-gray-900 text-white': secondary,
-    'border-green-500 bg-green-500 text-white': success,
-    'border-yellow-400 bg-yellow-400 text-white': warning,
-    'border-red-500 bg-red-500 text-white': danger,
+  // The rest's className is needed too just in case any additional css styling
+  // gets passed in as props.
+  const classes = className(rest.className, 'flex item-center px-3 py-1.5 border', {
+    'border-blue-500 bg-blue-500': primary,
+    'border-gray-900 bg-gray-900': secondary,
+    'border-green-500 bg-green-500': success,
+    'border-yellow-400 bg-yellow-400': warning,
+    'border-red-500 bg-red-500': danger,
     'rounded-full': rounded,
     'bg-white': outline,
+    "text-white":
+      !outline && (primary || secondary || success || warning || danger),
     'text-blue-500': outline && primary,
     'text-gray-900': outline && secondary,
     'text-green-500': outline && success,
     'text-yellow-400': outline && warning,
-    'text-red-500': outline && danger,
+    'text-red-500': outline && danger
   });
 
   return (
-    <button className={classes}>{children}</button>
+    // Take all properties from rest and assign them as props.
+    // The rest variable should be first.
+    <button {...rest} className={classes}>{children}</button>
   );
 }
 
