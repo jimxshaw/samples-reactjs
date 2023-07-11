@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './components/Button';
 import { FaRegFutbol, FaRegHeart } from 'react-icons/fa6';
 
 function App() {
