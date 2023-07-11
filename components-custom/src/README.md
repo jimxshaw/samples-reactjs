@@ -1,5 +1,7 @@
 # State and Events Design Process
 
+### Using Accordion Component as an example
+
 ### What state and event handlers are there?
 
 1. List out specifically what users will do and the *changes* they will see while using the app.
@@ -18,14 +20,22 @@
 ##### Ideally, avoid arrays or objects as they're more complex compared to the simple types.
 
 4. Look at mockup. Remove or simplify parts that aren't changing.
+    - E.g. in the mocks, remove hard coded text because they're set and has nothing to do with state or events.
 
 5. Replace remaining elements with text descriptions.
+    - Use simple descriptions, preferably one word that captures the essence of what's happening. E.g. *expanded, collapsed, collapsed*.
+    - Tip: imagine you're telling another engineer who cannot see your screen what the UI looks like.
 
 6. Repeat #4 and #5 with a different variation.
+    - E.g. *collapsed, collapsed, expanded*.
 
-7. Image you have to write a function that returns the text of steps #5 and #6. In addition to your component props, *what other arguments would you need?*
+7. Image you have to write a function that returns the text of steps #5 and #6. In addition to your component props, *what other argument(s) would this function need?*
+    - E.g. the function must return *collapsed, collapsed, expanded* and also return *expanded, collapsed, collapsed*.
+    - E.g. the addtional argument could be a number representing the index in the array where the *expanded* variable would be.
 
 
 ### Where is it defined?
 
 8. Decide where each event handler and state will be defined.
+    - Tip: crucial question to ask, does any component besides Accordion *reasonably* need to know which item is expanded?
+    - If Yes, put *expanded* in App. If No, put *expanded* in Accordion.
