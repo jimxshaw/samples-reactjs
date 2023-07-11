@@ -14,7 +14,8 @@
     - Generalize the descriptions. E.g. re-write 'clicked on the third section' to 'clicked on a section header' or 'third section collapses' to 'one section expands, all others collapse'.
 
 
-### What name and type?
+### What name and type (E.g. number, string, boolean, array, object)?
+##### Ideally, avoid arrays or objects as they're more complex compared to the simple types.
 
 4. Look at mockup. Remove or simplify parts that aren't changing.
 
