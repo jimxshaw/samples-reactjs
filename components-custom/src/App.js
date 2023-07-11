@@ -1,52 +1,27 @@
-import Button from './components/Button';
-import { FaRegFutbol, FaRegHeart } from 'react-icons/fa6';
+import Accordion from './components/Accordion';
 
 function App() {
-  const handleClick = () => {
-    console.log('click!!!');
-  };
-
-  const handleMouseOver = () => {
-    console.log('mouse over!!!');
-  };
+  const items = [
+    {
+      id: 'sjf983f',
+      label: 'Hello',
+      content: 'Greetings to you all. Greetings to you all. Greetings to you all. Greetings to you all. Greetings to you all.'
+    },
+    {
+      id: 'jv0893',
+      label: 'Goodbye',
+      content: 'See you all soon! See you all soon! See you all soon! See you all soon! See you all soon! See you all soon!'
+    },
+    {
+      id: '38fjk4rh98',
+      label: 'Welcome',
+      content: 'Thank you for joining us. Thank you for joining us.Thank you for joining us.Thank you for joining us.Thank you for joining us.'
+    }
+  ];
 
   return (
     <div>
-      <div>
-        <Button>
-          <FaRegFutbol />
-          Confirm
-        </Button>
-      </div>
-      <div>
-        <Button primary
-          onClick={handleClick}
-          onMouseOver={handleMouseOver}
-          className="mb-5">
-          Click Here
-        </Button>
-      </div>
-      <div>
-        <Button secondary>Buy It Now</Button>
-      </div>
-      <div>
-        <Button success outline rounded>
-          <FaRegHeart />
-          Cancel
-        </Button>
-      </div>
-      <div>
-        <Button warning>Decline</Button>
-      </div>
-      <div>
-        <Button danger>Delete</Button>
-      </div>
-      <div>
-        <Button success rounded>Add to Cart</Button>
-      </div>
-      <div>
-        <Button primary outline>Accept</Button>
-      </div>
+      <Accordion items={items} />
     </div>
   );
 }
