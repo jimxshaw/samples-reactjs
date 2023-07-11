@@ -2,11 +2,16 @@
 
 ### What state and event handlers are there?
 
-1. List out what users will do and the *changes* they will see while using the app.
+1. List out specifically what users will do and the *changes* they will see while using the app.
 
 2. Categorize each step as 'state' or 'event handler'.
+    - Users see something on the screen change: we probably need **state** to implement this step.
+    - Users committed some action: we probably need an **event handler** to implement this.
 
 3. Group common steps. Remove duplicates. Re-write descriptions.
+    - Can multiple similar event handlers be combined into fewer ones or just one handler?
+    - Can multiple similar states be combined into fewer ones or just one state?
+    - Generalize the descriptions. E.g. re-write 'clicked on the third section' to 'clicked on a section header' or 'third section collapses' to 'one section expands, all others collapse'.
 
 
 ### What name and type?
