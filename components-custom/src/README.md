@@ -39,3 +39,5 @@
 8. Decide where each event handler and state will be defined.
     - Tip: crucial question to ask, does any component besides Accordion *reasonably* need to know which item is expanded?
     - If Yes, put *expanded* in App. If No, put *expanded* in Accordion.
+    - Tip: event handler usually should be *defined* in the same component as the state it modifies. Although the even handler might be *used* in different components.
+
