@@ -7,7 +7,7 @@ function Accordion({ items }) {
   const handleClick = (nextIndex) => {
     // The first argument in the function that gets passed into a 
     // state setter will be the most up-to-date/current piece of state.
-    // This setting with a function approach is needed in the rare scenario 
+    // This setter with a function approach is needed in the rare scenario 
     // where a Bug appears when dealing with a stale/non-current piece of state.
     setExpandedIndex((currentExpandedIndex) => {
       if (currentExpandedIndex === nextIndex) {
