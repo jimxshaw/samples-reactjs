@@ -12,7 +12,7 @@ function Accordion({ items }) {
 
     return (
       <div key={item.id}>
-        <div>
+        <div onClick={() => setExpandedIndex(index)}>
           {item.label}
         </div>
         <div>
