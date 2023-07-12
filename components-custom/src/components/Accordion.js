@@ -5,12 +5,18 @@ function Accordion({ items }) {
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const handleClick = (nextIndex) => {
-    if (expandedIndex === nextIndex) {
-      // Collapse the currently opened card.
-      setExpandedIndex(-1);
-    } else {
-      setExpandedIndex(nextIndex);
-    }
+    // The first argument in the function that gets passed into a 
+    // state setter will be the most up-to-date/current piece of state.
+    // This setting with a function approach is needed in the rare scenario 
+    // where a Bug appears when dealing with a stale/non-current piece of state.
+    setExpandedIndex((currentExpandedIndex) => {
+      if (currentExpandedIndex === nextIndex) {
+        // Collapse the currently opened card.
+        return -1;
+      } else {
+        return nextIndex;
+      }
+    });
   };
 
   const renderedItems = items.map((item, index) => {
