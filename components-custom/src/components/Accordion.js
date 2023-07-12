@@ -14,11 +14,16 @@ function Accordion({ items }) {
     // && gives back the first falsey value, if exists, or the last truthy value.
     const conditionalContent = isExpanded && <div>{item.content}</div>;
 
+    const icon = <span>
+      {isExpanded ? 'DOWN' : 'LEFT'}
+    </span>;
+
     return (
       <div key={item.id}>
         {/* If an event handler is needed inside a mapping function then 
             use this an arrow function with the handler that's on the outside of map. */}
         <div onClick={() => handleClick(index)}>
+          {icon}
           {item.label}
         </div>
         <div>
