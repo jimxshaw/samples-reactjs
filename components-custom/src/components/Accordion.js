@@ -13,9 +13,9 @@ function Accordion({ items }) {
 
     // || gives back the first truthy value
     // && gives back the first falsey value, if exists, or the last truthy value.
-    const conditionalContent = isExpanded && <div>{item.content}</div>;
+    const conditionalContent = isExpanded && <div className="border-b p-5">{item.content}</div>;
 
-    const icon = <span>
+    const icon = <span className="text-2xl">
       {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
     </span>;
 
@@ -23,9 +23,9 @@ function Accordion({ items }) {
       <div key={item.id}>
         {/* If an event handler is needed inside a mapping function then 
             use this an arrow function with the handler that's on the outside of map. */}
-        <div onClick={() => handleClick(index)}>
-          {icon}
+        <div onClick={() => handleClick(index)} className="flex p-3 justify-between bg-gray-50 border-b items-center cursor-pointer">
           {item.label}
+          {icon}
         </div>
         <div>
           {conditionalContent}
@@ -35,7 +35,7 @@ function Accordion({ items }) {
   });
 
   return (
-    <div>
+    <div className="border-x border-t rounded">
       {renderedItems}
     </div>
   );
