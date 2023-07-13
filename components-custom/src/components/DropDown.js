@@ -10,9 +10,13 @@ function DropDown({ options }) {
     setIsOpen((currentIsOpen) => !currentIsOpen);
   };
 
+  const handleOptionClick = () => {
+    setIsOpen(false);
+  };
+
   const renderedOptions = options.map((option) => {
     return (
-      <div key={option.value}>
+      <div key={option.value} onClick={handleOptionClick}>
         {option.label}
       </div>
     );
