@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div>
+      {/* Naming convention says form control prop names should be value and onChange. */}
       <DropDown options={options} value={selection} onChange={handleSelect} />
     </div>
   );
