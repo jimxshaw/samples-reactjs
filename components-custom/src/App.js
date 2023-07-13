@@ -1,27 +1,24 @@
-import Accordion from './components/Accordion';
+import { useState } from "react";
+import DropDown from "./components/DropDown";
 
 function App() {
-  const items = [
-    {
-      id: 'sjf983f',
-      label: 'Hello',
-      content: 'Greetings to you all. Greetings to you all. Greetings to you all. Greetings to you all. Greetings to you all.'
-    },
-    {
-      id: 'jv0893',
-      label: 'Goodbye',
-      content: 'See you all soon! See you all soon! See you all soon! See you all soon! See you all soon! See you all soon!'
-    },
-    {
-      id: '38fjk4rh98',
-      label: 'Welcome',
-      content: 'Thank you for joining us. Thank you for joining us.Thank you for joining us.Thank you for joining us.Thank you for joining us.'
-    }
+  // By default nothing should be selected in the drop down.
+  const [selection, setSelection] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelection(option);
+  };
+
+  const options = [
+    { label: 'Green', value: 'green' },
+    { label: 'Purple', value: 'purple' },
+    { label: 'Yellow', value: 'yellow' },
   ];
 
   return (
     <div>
-      <Accordion items={items} />
+      {/* Naming convention says form control prop names should be value and onChange. */}
+      <DropDown options={options} value={selection} onChange={handleSelect} />
     </div>
   );
 }

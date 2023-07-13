@@ -1,10 +1,22 @@
 import { useState } from 'react';
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 function Accordion({ items }) {
-  const [expandedIndex, setExpandedIndex] = useState(0);
+  const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const handleClick = (nextIndex) => {
-    setExpandedIndex(nextIndex);
+    // The first argument in the function that gets passed into a 
+    // state setter will be the most up-to-date/current piece of state.
+    // This setter with a function approach is needed in the rare scenario 
+    // where a Bug appears when dealing with a stale/non-current piece of state.
+    setExpandedIndex((currentExpandedIndex) => {
+      if (currentExpandedIndex === nextIndex) {
+        // Collapse the currently opened card.
+        return -1;
+      } else {
+        return nextIndex;
+      }
+    });
   };
 
   const renderedItems = items.map((item, index) => {
@@ -12,14 +24,19 @@ function Accordion({ items }) {
 
     // || gives back the first truthy value
     // && gives back the first falsey value, if exists, or the last truthy value.
-    const conditionalContent = isExpanded && <div>{item.content}</div>;
+    const conditionalContent = isExpanded && <div className="border-b p-5">{item.content}</div>;
+
+    const icon = <span className="text-2xl">
+      {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+    </span>;
 
     return (
       <div key={item.id}>
         {/* If an event handler is needed inside a mapping function then 
             use this an arrow function with the handler that's on the outside of map. */}
-        <div onClick={() => handleClick(index)}>
+        <div onClick={() => handleClick(index)} className="flex p-3 justify-between bg-gray-50 border-b items-center cursor-pointer">
           {item.label}
+          {icon}
         </div>
         <div>
           {conditionalContent}
@@ -29,7 +46,7 @@ function Accordion({ items }) {
   });
 
   return (
-    <div>
+    <div className="border-x border-t rounded">
       {renderedItems}
     </div>
   );
