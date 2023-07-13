@@ -26,16 +26,11 @@ function DropDown({ options, selection, onSelect }) {
     );
   });
 
-  let content = 'Select...';
-  // Check if selection is null or has a value.
-  if (selection) {
-    content = selection.label;
-  }
-
   return (
     <div>
       <div onClick={handleClick}>
-        {content}
+        {/* If selection is null or undefined, use the Select... text. */}
+        {selection?.label || 'Select...'}
       </div>
       {isOpen && <div>{renderedOptions}</div>}
     </div>
