@@ -1,4 +1,15 @@
+import { useState } from 'react';
+
 function DropDown({ options }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    // Put an arrow function in the setter to fix the rare
+    // bug scenario where the current state value is dependent on
+    // an old state value.
+    setIsOpen((currentIsOpen) => !currentIsOpen);
+  };
+
   const renderedOptions = options.map((option) => {
     return (
       <div key={option.value}>
@@ -9,12 +20,10 @@ function DropDown({ options }) {
 
   return (
     <div>
-      <div>
+      <div onClick={handleClick}>
         Select...
       </div>
-      <div>
-        {renderedOptions}
-      </div>
+      {isOpen && <div>{renderedOptions}</div>}
     </div>
   );
 }
