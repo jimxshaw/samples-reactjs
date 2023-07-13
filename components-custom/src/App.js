@@ -1,6 +1,14 @@
+import { useState } from "react";
 import DropDown from "./components/DropDown";
 
 function App() {
+  // By default nothing should be selected in the drop down.
+  const [selection, setSelection] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelection(option);
+  };
+
   const options = [
     { label: 'Green', value: 'green' },
     { label: 'Purple', value: 'purple' },
@@ -9,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <DropDown options={options} />
+      <DropDown options={options} selection={selection} onSelect={handleSelect} />
     </div>
   );
 }
