@@ -1,9 +1,12 @@
+import classNames from 'classnames';
 import useNavigationContext from "../hooks/use-navigation-context";
 
 // The to prop is the navigation destination.
 // The children will include text that will be inside the a tag.
 function Link({ to, children }) {
   const { navigate } = useNavigationContext();
+
+  const classes = classNames('text-blue-500');
 
   const handleClick = (event) => {
     // If the user on MacOS presses the CMD key or
@@ -21,7 +24,7 @@ function Link({ to, children }) {
   };
 
   return (
-    <a onClick={handleClick} href={to}>
+    <a className={classes} onClick={handleClick} href={to}>
       {children}
     </a>
   );
