@@ -9,14 +9,14 @@ function Sidebar() {
 
   const renderedLinks = links.map((link) => {
     return (
-      <Link key={link.label} to={link.path}>
+      <Link key={link.label} to={link.path} className="mb-3">
         {link.label}
       </Link>
     );
   });
 
   return (
-    <div className="stricky top-0 overflow-y-scroll flex flex-col">
+    <div className="stricky top-0 overflow-y-auto flex flex-col">
       {renderedLinks}
     </div>
   );
