@@ -12,7 +12,8 @@ function App() {
         <Route path="/accordion">
           <AccordionPage />
         </Route>
-        <Route path="/dropdown">
+        <Route path="/">
+          {/* Make this the index route. */}
           <DropDownPage />
         </Route>
       </div>
