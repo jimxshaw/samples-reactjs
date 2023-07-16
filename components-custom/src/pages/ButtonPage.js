@@ -3,11 +3,11 @@ import { FaRegFutbol, FaRegHeart } from 'react-icons/fa6';
 
 function ButtonPage() {
   const handleClick = () => {
-    console.log('click!!!');
+    // Do something.
   };
 
   const handleMouseOver = () => {
-    console.log('mouse over!!!');
+    // Do something.
   };
 
   return (
