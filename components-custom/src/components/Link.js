@@ -4,14 +4,14 @@ import NavigationContext from "../context/Navigation";
 // The to prop is the navigation destination.
 // The children will include text that will be inside the a tag.
 function Link({ to, children }) {
-  const { navigation } = useContext(NavigationContext);
+  const { navigate } = useContext(NavigationContext);
 
   const handleClick = (event) => {
     // Crucial: this prevents total browser refresh.
     event.preventDefault();
 
     // Programmatically navigate to some route.
-    navigation(to);
+    navigate(to);
   };
 
   return (
