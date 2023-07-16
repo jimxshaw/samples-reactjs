@@ -16,7 +16,7 @@ function Sidebar() {
   });
 
   return (
-    <div>
+    <div className="stricky top-0 overflow-y-scroll flex flex-col">
       {renderedLinks}
     </div>
   );

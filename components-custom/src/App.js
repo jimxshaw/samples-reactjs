@@ -1,20 +1,23 @@
-import Link from './components/Link';
+import Sidebar from './components/Sidebar';
 import Route from './components/Route';
 import AccordionPage from './pages/AccordionPage'
 import DropDownPage from './pages/DropDownPage';
+import ButtonPage from './pages/ButtonPage';
 
 function App() {
   return (
     <div>
-      <Link to="/accordion">Accordion Page</Link>
-      <Link to="/dropdown">Drop Down Page</Link>
+      <Sidebar />
       <div>
-        <Route path="/accordion">
-          <AccordionPage />
-        </Route>
         <Route path="/">
           {/* Make this the index route. */}
           <DropDownPage />
+        </Route>
+        <Route path="/accordion">
+          <AccordionPage />
+        </Route>
+        <Route path="/buttons">
+          <ButtonPage />
         </Route>
       </div>
     </div>
