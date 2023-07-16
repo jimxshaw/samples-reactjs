@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import NavigationContext from "../context/Navigation";
+import useNavigationContext from "../hooks/use-navigation-context";
 
 // The to prop is the navigation destination.
 // The children will include text that will be inside the a tag.
 function Link({ to, children }) {
-  const { navigate } = useContext(NavigationContext);
+  const { navigate } = useNavigationContext();
 
   const handleClick = (event) => {
     // Crucial: this prevents total browser refresh.
