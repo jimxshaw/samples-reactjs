@@ -6,6 +6,13 @@ function Link({ to, children }) {
   const { navigate } = useNavigationContext();
 
   const handleClick = (event) => {
+    // If the user on MacOS presses the CMD key or
+    // user on Windows presses the Ctrl key, let the browser
+    // do the default behavior.
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
+
     // Crucial: this prevents total browser refresh.
     event.preventDefault();
 
@@ -14,7 +21,7 @@ function Link({ to, children }) {
   };
 
   return (
-    <a onClick={handleClick}>
+    <a onClick={handleClick} href={to}>
       {children}
     </a>
   );
