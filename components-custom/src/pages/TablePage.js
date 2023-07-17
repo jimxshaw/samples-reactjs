@@ -2,11 +2,11 @@ import Table from "../components/Table";
 
 function TablePage() {
   const data = [
-    { name: 'Apple', color: 'bg-red-500', score: 5 },
-    { name: 'Orange', color: 'bg-orange-500', score: 3 },
-    { name: 'Banana', color: 'bg-yellow-500', score: 4 },
-    { name: 'Grape', color: 'bg-purple-500', score: 7 },
-    { name: 'Pear', color: 'bg-green-500', score: 9 }
+    { id: 4, name: 'Apple', color: 'bg-red-500', score: 5 },
+    { id: 3, name: 'Orange', color: 'bg-orange-500', score: 3 },
+    { id: 2, name: 'Banana', color: 'bg-yellow-500', score: 4 },
+    { id: 1, name: 'Grape', color: 'bg-purple-500', score: 7 },
+    { id: 5, name: 'Pear', color: 'bg-green-500', score: 9 }
   ];
 
   return (
