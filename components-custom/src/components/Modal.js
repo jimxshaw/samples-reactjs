@@ -1,6 +1,20 @@
 import ReactDOM from 'react-dom';
+import { useEffect } from 'react';
 
 function Modal({ onClose, children, actionBar }) {
+
+  // When the Modal appears add this class to resolve
+  // the overflow bug by preventing scrolling.
+  useEffect(() => {
+    document.body.classList.add('overflow-hidden');
+
+    // Clean up function to remove the class when
+    // the Modal is removed from the screen.
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, []);
+
   return ReactDOM.createPortal(
     <div>
       {/* Gray background */}
