@@ -9,9 +9,28 @@ function TablePage() {
     { id: 5, name: 'Pear', color: 'bg-green-500', score: 9 }
   ];
 
+  const config = [
+    {
+      label: 'Name',
+      render: (fruit) => fruit.name
+    },
+    {
+      label: 'Color',
+      render: (fruit) => <div className={`p-3 p-2 ${fruit.color}`}></div>
+    },
+    {
+      label: 'Score',
+      render: (fruit) => fruit.score
+    },
+  ];
+
+  const keyFn = (fruit) => {
+    return fruit.id;
+  };
+
   return (
     <div>
-      <Table data={data} />
+      <Table data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }
