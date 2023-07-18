@@ -1,6 +1,8 @@
-function SortableTable() {
+import Table from "./Table";
+
+function SortableTable(props) {
   return (
-    <div>Sortable Table!</div>
+    <Table {...props} />
   );
 }
 
