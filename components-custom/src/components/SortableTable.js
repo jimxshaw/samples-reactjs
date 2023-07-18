@@ -1,6 +1,10 @@
 import Table from "./Table";
 
 function SortableTable(props) {
+  const handleClick = (label) => {
+    console.log(label);
+  };
+
   // Do not modify config itself. Use the config
   // as a basis of a new set of objects using map.
   const { config } = props;
@@ -14,7 +18,7 @@ function SortableTable(props) {
     // Return all the columns but with an added header function.
     return {
       ...column,
-      header: () => <th>{column.label} IS SORTABLE</th>
+      header: () => <th onClick={() => handleClick(column.label)}>{column.label} IS SORTABLE</th>
     };
   });
 
