@@ -6,11 +6,13 @@ function Table({ data, config }) {
   });
 
   const renderedRows = data.map((fruit) => {
+    const renderedCells = config.map((column) => {
+      return <td key={column.label} className="p-3">{column.render(fruit)}</td>
+    });
+
     return (
       <tr key={fruit.id} className="border-b">
-        <td className="p-3">{config[0].render(fruit)}</td>
-        <td className="p-3">{config[1].render(fruit)}</td>
-        <td className="p-3">{config[2].render(fruit)}</td>
+        {renderedCells}
       </tr>
     );
   });
