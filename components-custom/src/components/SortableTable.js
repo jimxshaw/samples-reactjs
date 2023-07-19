@@ -7,6 +7,11 @@ function SortableTable(props) {
   // as a basis of a new set of objects using map.
   const { config, data } = props;
 
+  // General guidelines for creating Custom Hooks:
+  // - Find code in a component related to a single piece of state.
+  // - Copy paste it all into a helper function.
+  // - Fix all the broken references.
+  // - That's it, now we have a custom hook.
   const { sortBy, sortOrder, sortedData, setSortColumn } = useSort(config, data);
 
   const updatedConfig = config.map((column) => {
