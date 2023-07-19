@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import useCounter from '../hooks/use-counter';
 import Button from '../components/Button';
 
 // General guidelines for creating Custom Hooks:
@@ -6,23 +6,6 @@ import Button from '../components/Button';
 // - Copy paste it all into a helper function.
 // - Fix all the broken references.
 // - That's it, now we have a custom hook.
-function useCounter(initialCount) {
-  const [count, setCount] = useState(initialCount);
-
-  useEffect(() => {
-    console.log(count);
-  }, [count]);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  return {
-    count,
-    increment
-  };
-}
-
 function CounterPage({ initialCount }) {
   const { count, increment } = useCounter(initialCount);
 
