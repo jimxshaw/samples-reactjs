@@ -32,7 +32,12 @@ function SortableTable(props) {
     // Return all the columns but with an added header function.
     return {
       ...column,
-      header: () => <th onClick={() => handleClick(column.label)}>{column.label} IS SORTABLE</th>
+      header: () => (
+        <th onClick={() => handleClick(column.label)}>
+          {getIcons(column.label, sortBy, sortOrder)}
+          {column.label}
+        </th>
+      )
     };
   });
 
@@ -65,6 +70,20 @@ function SortableTable(props) {
     // in updateConfig after, updatedConfig overrides the prior config.
     <Table {...props} data={sortedData} config={updatedConfig} />
   );
+}
+
+function getIcons(label, sortBy, sortOrder) {
+  if (label !== sortBy) {
+    return 'Show both icons';
+  }
+
+  if (sortOrder === null) {
+    return 'show both icons';
+  } else if (sortOrder === 'asc') {
+    return 'show up icon';
+  } else if (sortOrder === 'desc') {
+    return 'show down icon';
+  }
 }
 
 export default SortableTable;
