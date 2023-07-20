@@ -1,36 +1,18 @@
-import { useState } from 'react';
+import useSort from '../hooks/use-sort';
 import Table from './Table';
 import { GoTriangleUp, GoTriangleDown } from 'react-icons/go';
 
 function SortableTable(props) {
-  // Null means unsorted.
-  const [sortOrder, setSortOrder] = useState(null);
-  const [sortBy, setSortBy] = useState(null);
-
   // Do not modify config itself. Use the config
   // as a basis of a new set of objects using map.
   const { config, data } = props;
 
-  const handleClick = (label) => {
-    // Clicking a sort header and then clicking 
-    // another sort header.
-    if (sortBy && label !== sortBy) {
-      setSortOrder('asc');
-      setSortBy(label);
-      return;
-    }
-
-    if (sortOrder === null) {
-      setSortOrder('asc');
-      setSortBy(label);
-    } else if (sortOrder === 'asc') {
-      setSortOrder('desc');
-      setSortBy(label);
-    } else if (sortOrder === 'desc') {
-      setSortOrder(null);
-      setSortBy(null);
-    }
-  };
+  // General guidelines for creating Custom Hooks:
+  // - Find code in a component related to a single piece of state.
+  // - Copy paste it all into a helper function.
+  // - Fix all the broken references.
+  // - That's it, now we have a custom hook.
+  const { sortBy, sortOrder, sortedData, setSortColumn } = useSort(config, data);
 
   const updatedConfig = config.map((column) => {
     if (!column.sortValue) {
@@ -42,7 +24,7 @@ function SortableTable(props) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)} className="cursor-pointer hover:bg-gray-100">
+        <th onClick={() => setSortColumn(column.label)} className="cursor-pointer hover:bg-gray-100">
           <div className="flex items-center">
             {getIcons(column.label, sortBy, sortOrder)}
             {column.label}
@@ -51,30 +33,6 @@ function SortableTable(props) {
       )
     };
   });
-
-
-  let sortedData = data;
-
-  // Only sort data if sortOrder && sortBy are not null.
-  if (sortOrder && sortBy) {
-    // Find the correct sort value function and use it for sorting.
-    const { sortValue } = config.find(column => column.label === sortBy);
-
-    // Make a copy of the 'data' prop because we do not EVER want to
-    // modify an existing prop (sort will modify the original 'data' array).
-    sortedData = [...data].sort((a, b) => {
-      const valueA = sortValue(a);
-      const valueB = sortValue(b);
-
-      const reverseOrder = sortOrder === 'asc' ? 1 : -1;
-
-      if (typeof valueA === 'string') {
-        return valueA.localeCompare(valueB) * reverseOrder;
-      } else {
-        return (valueA - valueB) * reverseOrder;
-      }
-    });
-  }
 
   return (
     // There's already a config in props but since we're also passing
