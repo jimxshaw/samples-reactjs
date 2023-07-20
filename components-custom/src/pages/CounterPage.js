@@ -21,6 +21,13 @@ function CounterPage({ initialCount }) {
     setValueToAdd(value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    setCount(count + valueToAdd);
+    setValueToAdd(0);
+  };
+
   return (
     <Panel className="m-3">
       <h1 className="text-lg">Count is {count}</h1>
@@ -33,7 +40,7 @@ function CounterPage({ initialCount }) {
         </Button>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Add much more!</label>
         <input
           value={valueToAdd || ""}
