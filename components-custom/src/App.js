@@ -6,6 +6,7 @@ import ButtonPage from './pages/ButtonPage';
 import ModalPage from './pages/ModalPage';
 import TablePage from './pages/TablePage';
 import CounterPage from './pages/CounterPage';
+import CounterWithImmerPage from './pages/CounterWithImmerPage';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/counter">
           <CounterPage initialCount={0} />
+        </Route>
+        <Route path="/counterWithImmer">
+          <CounterWithImmerPage initialCount={0} />
         </Route>
       </div>
     </div>
