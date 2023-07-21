@@ -20,42 +20,35 @@ const reducer = (state, action) => {
   // Instead, always use the update approaches here:
   // https://state-updates.vercel.app/
 
-  if (action.type === INCREMENT) {
-    return {
-      ...state,
-      count: state.count + 1
-    };
+  switch (action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + 1
+      };
+    case DECREMENT:
+      return {
+        ...state,
+        count: state.count - 1
+      };
+    case CHANGE_VALUE:
+      return {
+        ...state,
+        valueToAdd: action.payload
+      };
+    case SUM_COUNT_AND_VALUE:
+      return {
+        ...state,
+        count: state.count + state.valueToAdd
+      };
+    case RESET_VALUE:
+      return {
+        ...state,
+        valueToAdd: action.payload
+      };
+    default:
+      return state;
   }
-
-  if (action.type === DECREMENT) {
-    return {
-      ...state,
-      count: state.count - 1
-    };
-  }
-
-  if (action.type === CHANGE_VALUE) {
-    return {
-      ...state,
-      valueToAdd: action.payload
-    };
-  }
-
-  if (action.type === SUM_COUNT_AND_VALUE) {
-    return {
-      ...state,
-      count: state.count + state.valueToAdd
-    };
-  }
-
-  if (action.type === RESET_VALUE) {
-    return {
-      ...state,
-      valueToAdd: action.payload
-    };
-  }
-
-  return state;
 };
 
 function CounterPage({ initialCount }) {
