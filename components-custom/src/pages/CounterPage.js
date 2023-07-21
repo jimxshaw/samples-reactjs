@@ -2,6 +2,13 @@ import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
 
+// Action Types
+const INCREMENT = 'increment-count';
+const DECREMENT = 'decrement-count';
+const CHANGE_VALUE = 'change-value-to-add';
+const RESET_VALUE = 'reset-value-to-add';
+const SUM_COUNT_AND_VALUE = 'sum-count-and-value-to-add';
+
 // Reducer: no async/await, no requests,
 // no promises, no outside variables.
 const reducer = (state, action) => {
@@ -13,35 +20,35 @@ const reducer = (state, action) => {
   // Instead, always use the update approaches here:
   // https://state-updates.vercel.app/
 
-  if (action.type === 'increment') {
+  if (action.type === INCREMENT) {
     return {
       ...state,
       count: state.count + 1
     };
   }
 
-  if (action.type === 'decrement') {
+  if (action.type === DECREMENT) {
     return {
       ...state,
       count: state.count - 1
     };
   }
 
-  if (action.type === 'change-value-to-add') {
+  if (action.type === CHANGE_VALUE) {
     return {
       ...state,
       valueToAdd: action.payload
     };
   }
 
-  if (action.type === 'sum-count-and-value-to-add') {
+  if (action.type === SUM_COUNT_AND_VALUE) {
     return {
       ...state,
       count: state.count + state.valueToAdd
     };
   }
 
-  if (action.type === 'reset-value-to-add') {
+  if (action.type === RESET_VALUE) {
     return {
       ...state,
       valueToAdd: action.payload
@@ -61,13 +68,13 @@ function CounterPage({ initialCount }) {
 
   const increment = () => {
     dispatch({
-      type: 'increment'
+      type: INCREMENT
     });
   };
 
   const decrement = () => {
     dispatch({
-      type: 'decrement'
+      type: DECREMENT
     });
   };
 
@@ -76,7 +83,7 @@ function CounterPage({ initialCount }) {
     const value = parseInt(event.target.value) || 0;
 
     dispatch({
-      type: 'change-value-to-add',
+      type: CHANGE_VALUE,
       payload: value
     });
   };
@@ -87,11 +94,11 @@ function CounterPage({ initialCount }) {
     //setCount(count + valueToAdd);
     //setValueToAdd(0);
     dispatch({
-      type: 'sum-count-and-value-to-add'
+      type: SUM_COUNT_AND_VALUE
     });
 
     dispatch({
-      type: 'reset-value-to-add',
+      type: RESET_VALUE,
       payload: 0
     });
   };
