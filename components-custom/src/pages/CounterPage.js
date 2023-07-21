@@ -37,7 +37,7 @@ const reducer = (state, action) => {
   if (action.type === 'sum-count-and-value-to-add') {
     return {
       ...state,
-      count: action.payload
+      count: state.count + state.valueToAdd
     };
   }
 
@@ -87,8 +87,7 @@ function CounterPage({ initialCount }) {
     //setCount(count + valueToAdd);
     //setValueToAdd(0);
     dispatch({
-      type: 'sum-count-and-value-to-add',
-      payload: state.count + state.valueToAdd
+      type: 'sum-count-and-value-to-add'
     });
 
     dispatch({
