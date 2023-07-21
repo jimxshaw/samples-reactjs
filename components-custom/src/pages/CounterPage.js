@@ -12,10 +12,43 @@ const reducer = (state, action) => {
   // Never directly assign values to state properties.
   // Instead, always use the update approaches here:
   // https://state-updates.vercel.app/
-  return {
-    ...state,
-    count: state.count + 1
-  };
+
+  if (action.type === 'increment') {
+    return {
+      ...state,
+      count: state.count + 1
+    };
+  }
+
+  if (action.type === 'decrement') {
+    return {
+      ...state,
+      count: state.count - 1
+    };
+  }
+
+  if (action.type === 'change-value-to-add') {
+    return {
+      ...state,
+      valueToAdd: action.payload
+    };
+  }
+
+  if (action.type === 'sum-count-and-value-to-add') {
+    return {
+      ...state,
+      count: action.payload
+    };
+  }
+
+  if (action.type === 'reset-value-to-add') {
+    return {
+      ...state,
+      valueToAdd: action.payload
+    };
+  }
+
+  return state;
 };
 
 function CounterPage({ initialCount }) {
@@ -27,18 +60,25 @@ function CounterPage({ initialCount }) {
   });
 
   const increment = () => {
-    dispatch();
+    dispatch({
+      type: 'increment'
+    });
   };
 
   const decrement = () => {
-    //setCount(count - 1);
+    dispatch({
+      type: 'decrement'
+    });
   };
 
   const handleChange = (event) => {
     // If the value is ever NaN then just assign a zero.
     const value = parseInt(event.target.value) || 0;
 
-    //setValueToAdd(value);
+    dispatch({
+      type: 'change-value-to-add',
+      payload: value
+    });
   };
 
   const handleSubmit = (event) => {
@@ -46,6 +86,15 @@ function CounterPage({ initialCount }) {
 
     //setCount(count + valueToAdd);
     //setValueToAdd(0);
+    dispatch({
+      type: 'sum-count-and-value-to-add',
+      payload: state.count + state.valueToAdd
+    });
+
+    dispatch({
+      type: 'reset-value-to-add',
+      payload: 0
+    });
   };
 
   return (
