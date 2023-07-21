@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 import { useReducer } from 'react';
 import Button from '../components/Button';
 import Panel from '../components/Panel';
@@ -16,36 +17,26 @@ const reducer = (state, action) => {
   // the new state!
   // If nothing if returned then the
   // new state will be UNDEFINED.
-  // Never directly assign values to state properties.
-  // Instead, always use the update approaches here:
+  // With Immer, you can directly assign values to state properties.
+  // Without Immer, always use the update approaches here:
   // https://state-updates.vercel.app/
 
   switch (action.type) {
     case INCREMENT:
-      return {
-        ...state,
-        count: state.count + 1
-      };
+      state.count = state.count + 1;
+      return;
     case DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1
-      };
+      state.count = state.count - 1;
+      return;
     case CHANGE_VALUE:
-      return {
-        ...state,
-        valueToAdd: action.payload
-      };
+      state.valueToAdd = action.payload;
+      return;
     case SUM_COUNT_AND_VALUE:
-      return {
-        ...state,
-        count: state.count + state.valueToAdd
-      };
+      state.count = state.count + state.valueToAdd;
+      return;
     case RESET_VALUE:
-      return {
-        ...state,
-        valueToAdd: action.payload
-      };
+      state.valueToAdd = action.payload;
+      return;
     default:
       return state;
   }
@@ -54,7 +45,9 @@ const reducer = (state, action) => {
 function CounterWithImmerPage({ initialCount }) {
   // const [count, setCount] = useState(initialCount);
   // const [valueToAdd, setValueToAdd] = useState(0);
-  const [state, dispatch] = useReducer(reducer, {
+
+  // Use Immer by wrapping produce around reducer.
+  const [state, dispatch] = useReducer(produce(reducer), {
     count: initialCount,
     valueToAdd: 0
   });
